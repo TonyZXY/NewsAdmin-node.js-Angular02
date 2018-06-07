@@ -4,16 +4,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { DataService } from './services/data.service';
 import { AppComponent } from './app.component';
 import { MenubarComponent } from './elements/menubar/menubar.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ListnewsComponent } from './webpages/listnews/listnews.component';
+import { ListgroupitemComponent } from './elements/listgroupitem/listgroupitem.component';
 
+const appRoutes: Routes = [
+  { path: '', component: ListnewsComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
-    MenubarComponent
+    MenubarComponent,
+    ListnewsComponent,
+    ListgroupitemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
