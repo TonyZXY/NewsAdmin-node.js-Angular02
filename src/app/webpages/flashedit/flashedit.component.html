@@ -1,0 +1,26 @@
+<app-menubar></app-menubar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <app-toolbar></app-toolbar>
+    </div>
+    <div class="col-sm-10">
+      <br>
+      <br>
+      <form class="col-8" method="post">
+        <div class="form-group">
+          <h3>快讯编辑</h3>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">消息</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="原消息">
+          <label>原消息</label>
+        </div>
+        <button formaction="/submitNewsAdd" type="submit" class="btn btn-primary">Submit</button>
+        <br><br>
+        <button formaction="/deleteNews" type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+
