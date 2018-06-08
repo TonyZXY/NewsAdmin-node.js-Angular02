@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-listgroupitem',
@@ -6,14 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listgroupitem.component.css']
 })
 export class ListgroupitemComponent implements OnInit {
-  private time = '';
-  private labelTitle = '';
+  time;
+  labelTitle ;
 
-  constructor() { }
+  constructor() {
+    this.time = '15:00:46, 5/6/2018';
+    this.labelTitle = 'Text for test';
+  }
 
   ngOnInit() {
-    this.time = '15:00:45, 5/6/2018';
-    this.labelTitle = 'Test for label';
+
   }
 
 }
