@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import {News} from '../../entities/News';
 
 
 @Component({
@@ -8,11 +9,15 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./listnews.component.css']
 })
 export class ListnewsComponent implements OnInit {
-  constructor(private dataService: DataService) { }
+  newss: News[];
+  constructor(public dataService: DataService) { }
 
   getNews() {
+    this.dataService.getNews()
+      .subscribe(newss => this.newss = newss);
   }
   ngOnInit() {
+    this.getNews();
   }
 
 

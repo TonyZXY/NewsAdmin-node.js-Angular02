@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs';
+import { Observable } from 'rxjs/Observable';
+import {News} from '../entities/News';
+import {catchError, tap} from 'rxjs/operators';
+import {of} from 'rxjs';
 
 
 const httpOptions = {
@@ -14,15 +17,11 @@ const httpOptions = {
 
 export class DataService {
 
-  private urlHead = '10.10.6.111:3000/api/news';
-
-  constructor(public http: HttpClient) {
+  constructor(private http: HttpClient) {
     console.log('Data service in use');
   }
 
-  getNews () {
-    const url = `${this.urlHead}/news`;
-    // return this.http.get(url).pipe();
-    return url;
+  getNews (): Observable<News[]>  {
+    return this.http.get<News[]>('/assets/data.json').pipe();
   }
 }

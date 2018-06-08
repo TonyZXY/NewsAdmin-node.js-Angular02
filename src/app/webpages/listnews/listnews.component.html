@@ -9,18 +9,11 @@
       <br>
       <br>
       <ul class="list-group">
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
-        <app-listgroupitem></app-listgroupitem>
+        <app-listgroupitem
+          *ngFor="let n of newss"
+          [time]="n.publishedTime"
+          [labelTitle]="n.title"
+        ></app-listgroupitem>
       </ul>
     </div>
   </div>

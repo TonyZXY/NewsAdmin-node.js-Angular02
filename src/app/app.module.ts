@@ -20,6 +20,7 @@ import { AddflashComponent } from './webpages/addflash/addflash.component';
 import { AddvideoComponent } from './webpages/addvideo/addvideo.component';
 import { AddnewsComponent } from './webpages/addnews/addnews.component';
 import { AddgeniuneComponent } from './webpages/addgeniune/addgeniune.component';
+import { NewsmanageComponent } from './elements/newsmanage/newsmanage.component';
 
 const appRoutes: Routes = [
   { path: 'news/edit/:id', component: NewseditComponent},
@@ -27,7 +28,7 @@ const appRoutes: Routes = [
   { path: 'video/edit/:id', component: VideoeditComponent},
   { path: 'flash/edit/:id', component: FlasheditComponent},
   { path: '', component: ListnewsComponent},
-  { path: 'flash', component: ListflashComponent },
+  { path: 'flash', component: AddnewsComponent },
   { path: 'video', component: ListvideoComponent },
   { path: 'genuine', component: ListgeniuneComponent}
 ];
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     AddflashComponent,
     AddvideoComponent,
     AddnewsComponent,
-    AddgeniuneComponent
+    AddgeniuneComponent,
+    NewsmanageComponent
   ],
   imports: [
     BrowserModule,
