@@ -6,16 +6,20 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./listgroupitem.component.css']
 })
 export class ListgroupitemComponent implements OnInit {
-  time;
-  labelTitle ;
+  @Input() time;
+  @Input() labelTitle ;
 
   constructor() {
-    this.time = '15:00:46, 5/6/2018';
-    this.labelTitle = 'Text for test';
   }
 
   ngOnInit() {
+    this.setTime(this.time);
 
+  }
+
+  setTime(time: string){
+    time = this.time.substring(0, 10) + ' ' + this.time.substring(11, 18);
+    return time;
   }
 
 }

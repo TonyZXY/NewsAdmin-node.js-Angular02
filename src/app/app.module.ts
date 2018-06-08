@@ -25,6 +25,7 @@ import { VideohomeComponent } from './webpages/videohome/videohome.component';
 import { GenuinehomeComponent } from './webpages/genuinehome/genuinehome.component';
 import { FlashhomeComponent } from './webpages/flashhome/flashhome.component';
 import { WelcomeComponent } from './webpages/welcome/welcome.component';
+import { NewsmanageComponent } from './elements/newsmanage/newsmanage.component';
 
 const appRoutes: Routes = [
   { path: 'news/edit/:id', component: NewseditComponent},
@@ -63,7 +64,8 @@ const appRoutes: Routes = [
     VideohomeComponent,
     GenuinehomeComponent,
     FlashhomeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    NewsmanageComponent
   ],
   imports: [
     BrowserModule,
