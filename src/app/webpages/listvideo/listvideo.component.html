@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2">
-      <app-toolbar></app-toolbar>
+      <app-toolbar [parentPath]="string"></app-toolbar>
     </div>
     <div class="col-sm-10">
       <app-searchbar></app-searchbar>
@@ -13,6 +13,9 @@
           *ngFor="let v of videos"
           [time]="v.publishedTime"
           [labelTitle]="v.title"
+          [id]="v._id"
+          [edit]="edit"
+          [delete]="delete"
         ></app-listgroupitem>
       </ul>
     </div>

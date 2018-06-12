@@ -12,14 +12,14 @@
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">标题</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="{{news.title}}">
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="{{news?.title}}">
         </div>
         <div class="form-group">
           <label>
             标签
           </label><br>
           <label>
-            {{news.localeTag}}
+            {{news?.localeTag}}
           </label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
@@ -37,7 +37,7 @@
         </div>
         <div class="form-group">
           <label>
-            {{news.contentTag}}
+            {{news?.contentTag}}
           </label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="option1"
@@ -55,18 +55,18 @@
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">简介</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{news.newsDescription}}">
-          <label>{{news.newsDescription}}</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{news?.newsDescription}}">
+          <label>{{news?.newsDescription}}</label>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">图片地址</label>
-          <textarea class="form-control" id="imageUrl" name="imageUrl" placeholder="{{news.imageURL}}"></textarea>
-          <label>{{news.imageURL}}</label>
+          <textarea class="form-control" id="imageUrl" name="imageUrl" placeholder="{{news?.imageURL}}"></textarea>
+          <label>{{news?.imageURL}}</label>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">文章地址</label>
-          <textarea class="form-control" id="url" name="url" placeholder="{{news.url}}"></textarea>
-          <label>{{news.url}}</label>
+          <textarea class="form-control" id="url" name="url" placeholder="{{news?.url}}"></textarea>
+          <label>{{news?.url}}</label>
         </div>
         <button formaction="/submitNewsAdd" type="submit" class="btn btn-primary">Submit</button>
         <br><br>

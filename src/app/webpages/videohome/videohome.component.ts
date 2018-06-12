@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideohomeComponent implements OnInit {
   public string = 'video';
+  public str = '视频';
   constructor() { }
 
   ngOnInit() {

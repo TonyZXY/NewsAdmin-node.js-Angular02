@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2">
-      <app-toolbar></app-toolbar>
+      <app-toolbar [parentPath]="string"></app-toolbar>
     </div>
     <div class="col-sm-10">
       <br>
@@ -13,7 +13,7 @@
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">标题</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="原标题">
+          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="{{genuine?.title}}">
         </div>
         <div class="form-group">
           <label>
@@ -41,22 +41,19 @@
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">简介</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="原简介">
-          <label>原简介</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{genuine?.genuineDescription}}">
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">图片地址</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="原图片地址">
-          <label>原图片地址</label>
+          <textarea class="form-control" id="imageURL" name="imageURL" placeholder="{{genuine?.imageURL}}"></textarea>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">文章地址</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="原文章地址">
-          <label>原文章地址</label>
+          <textarea class="form-control" id="url" name="url" placeholder="{{genuine?.url}}"></textarea>
         </div>
-        <button formaction="/submitNewsAdd" type="submit" class="btn btn-primary">Submit</button>
+        <button formaction="/genuine/edit/{{genuine?._id}}" type="submit" class="btn btn-primary">Submit</button>
         <br><br>
-        <button formaction="/deleteNews" type="submit" class="btn btn-danger">Delete</button>
+        <button formaction="/genuine/delete/{{genuine?._id}}" type="submit" class="btn btn-danger">Delete</button>
       </form>
     </div>
   </div>

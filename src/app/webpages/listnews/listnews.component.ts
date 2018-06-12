@@ -1,7 +1,5 @@
-
 import {Component, OnInit, Output} from '@angular/core';
 import { DataService } from '../../services/data.service';
-import {News} from '../../entities/News';
 
 
 @Component({
@@ -12,7 +10,7 @@ import {News} from '../../entities/News';
 export class ListnewsComponent implements OnInit {
   public string = 'news';
   public edit = '/news/edit/';
-  public delete = '/news/delete';
+  public delete = '/news/delete/';
   newss;
   constructor(public dataService: DataService) { }
 

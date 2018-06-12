@@ -29,15 +29,22 @@ export class DataService {
   getNews (id): Observable<News> {
     return this.http.get<News>('http://10.10.6.111:3000/api/news/' + id);
   }
-  getVideos (): Observable<Video[]>  {
+  getVideosList (): Observable<Video[]>  {
     return this.http.get<Video[]>(this.urlHead + '/video').pipe();
   }
-
-  getNewsflash (): Observable<NewsFlash[]>  {
+  getVideo(id): Observable<Video> {
+    return this.http.get<Video>(this.urlHead + '/videos/' + id);
+  }
+  getNewsflashList (): Observable<NewsFlash[]>  {
     return this.http.get<NewsFlash[]>(this.urlHead + '/flashlist').pipe();
   }
-
-  getGenuine (): Observable<Genuine[]>  {
+  getFlash(id): Observable<NewsFlash> {
+    return this.http.get<NewsFlash>(this.urlHead + '/flashList/' + id);
+  }
+  getGenuineList (): Observable<Genuine[]>  {
     return this.http.get<Genuine[]>(this.urlHead + '/genuine').pipe();
+  }
+  getGenuine (id): Observable<Genuine> {
+    return this.http.get<Genuine>( this.urlHead + '/genuine/' + id);
   }
 }

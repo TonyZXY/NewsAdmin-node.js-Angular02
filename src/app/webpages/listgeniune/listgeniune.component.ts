@@ -8,12 +8,15 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./listgeniune.component.css']
 })
 export class ListgeniuneComponent implements OnInit {
+  public string = 'genuine';
+  public edit = '/genuine/edit/';
+  public delete = '/genuine/delete/';
   genuines: Genuine[];
 
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getGenuine()
+    this.dataService.getGenuineList()
       .subscribe(genuines => this.genuines = genuines);
   }
 

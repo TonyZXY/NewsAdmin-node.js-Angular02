@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenuinehomeComponent implements OnInit {
   public string = 'genuine';
+  public str = '原创';
   constructor() { }
 
   ngOnInit() {

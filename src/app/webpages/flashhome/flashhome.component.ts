@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlashhomeComponent implements OnInit {
   public string = 'flash';
+  public str = '快讯';
   constructor() { }
 
   ngOnInit() {

@@ -27,12 +27,17 @@ import { FlashhomeComponent } from './webpages/flashhome/flashhome.component';
 import { WelcomeComponent } from './webpages/welcome/welcome.component';
 import { NewsmanageComponent } from './elements/newsmanage/newsmanage.component';
 import { VideomanageComponent } from './elements/videomanage/videomanage.component';
+import { HomeviewComponent } from './elements/homeview/homeview.component';
 
 const appRoutes: Routes = [
   { path: 'news/edit/:id', component: NewseditComponent},
   { path: 'genuine/edit/:id', component: GenuineeditComponent},
   { path: 'video/edit/:id', component: VideoeditComponent},
   { path: 'flash/edit/:id', component: FlasheditComponent},
+  { path: 'flash/list', component: ListflashComponent},
+  { path: 'video/list', component: ListvideoComponent},
+  { path: 'genuine/list', component: ListgeniuneComponent},
+  { path: 'genuine/edit/:id', component: GenuineeditComponent},
   { path: 'news/list', component: ListnewsComponent},
   { path: 'news/add', component: AddnewsComponent},
   { path: 'news/search', component: ListnewsComponent},
@@ -67,7 +72,8 @@ const appRoutes: Routes = [
     FlashhomeComponent,
     WelcomeComponent,
     NewsmanageComponent,
-    VideomanageComponent
+    VideomanageComponent,
+    HomeviewComponent
   ],
   imports: [
     BrowserModule,

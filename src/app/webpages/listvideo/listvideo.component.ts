@@ -8,12 +8,14 @@ import {Video} from '../../entities/Video';
   styleUrls: ['./listvideo.component.css']
 })
 export class ListvideoComponent implements OnInit {
-
+  public string = 'video';
+  public edit = '/video/edit/';
+  public delete = '/news/delete/';
   videos: Video[];
   constructor(private dataservice: DataService) { }
 
   ngOnInit() {
-    this.dataservice.getVideos()
+    this.dataservice.getVideosList()
       .subscribe(videos => this.videos = videos);
   }
 

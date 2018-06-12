@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NewsFlash} from '../../entities/NewsFlash';
 import {DataService} from '../../services/data.service';
 
@@ -8,12 +8,17 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./listflash.component.css']
 })
 export class ListflashComponent implements OnInit {
+  public string = 'flash';
+  public edit = '/flash/edit/';
+  public delete = '/flash/delete/';
   newsFlashes: NewsFlash[];
-  message: string;
-  constructor(private dataService: DataService) { }
+
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit() {
-    this.dataService.getNewsflash().subscribe(newsFlashes => this.newsFlashes = newsFlashes);
+    this.dataService.getNewsflashList()
+      .subscribe(newsFlashes => this.newsFlashes = newsFlashes);
   }
 
 }

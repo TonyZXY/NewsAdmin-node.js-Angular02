@@ -5,6 +5,7 @@ export class Genuine {
   title: string;
   genuineDescription: string;
   genuineTag: string;
+  imageURL: string;
   url: string;
   __v: number;
   languageTag: string;
