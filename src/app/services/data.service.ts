@@ -12,7 +12,7 @@ const httpOptions = {
 };
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
 
 export class DataService {
@@ -21,7 +21,10 @@ export class DataService {
     console.log('Data service in use');
   }
 
-  getNews (): Observable<News[]>  {
-    return this.http.get<News[]>('/assets/data.json').pipe();
+  getNewsList (): Observable<News[]>  {
+    return this.http.get<News[]>('http://10.10.6.111:3000/api/news').pipe();
+  }
+  getNews (id): Observable<News> {
+    return this.http.get<News>( 'http://10.10.6.111:3000/api/news/' + id);
   }
 }

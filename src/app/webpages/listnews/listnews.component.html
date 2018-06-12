@@ -13,6 +13,9 @@
           *ngFor="let n of newss"
           [time]="n.publishedTime"
           [labelTitle]="n.title"
+          [id]="n._id"
+          [edit]="edit"
+          [delete]="delete"
         ></app-listgroupitem>
       </ul>
     </div>

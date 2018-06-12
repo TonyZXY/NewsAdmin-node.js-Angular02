@@ -8,6 +8,9 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ListgroupitemComponent implements OnInit {
   @Input() time;
   @Input() labelTitle ;
+  @Input() id;
+  @Input() edit;
+  @Input() delete;
 
   constructor() {
   }

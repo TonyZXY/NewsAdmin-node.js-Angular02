@@ -6,6 +6,7 @@ export class News {
   newsDescription: string;
   imageURL: string;
   localeTag: string;
+  contentTag: string;
   url: string;
   __v: number;
   languageTag: string;

@@ -10,11 +10,13 @@ import {News} from '../../entities/News';
 })
 export class ListnewsComponent implements OnInit {
   public string = 'news';
-  newss: News[];
+  public edit = '/news/edit/';
+  public delete = '/news/delete';
+  newss;
   constructor(public dataService: DataService) { }
 
   getNews() {
-    this.dataService.getNews()
+    this.dataService.getNewsList()
       .subscribe(newss => this.newss = newss);
   }
   ngOnInit() {
