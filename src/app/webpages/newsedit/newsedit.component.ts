@@ -1,3 +1,4 @@
+
 import {Component, Input, OnInit} from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 import {DataService} from '../../services/data.service';
@@ -14,7 +15,7 @@ export class NewseditComponent implements OnInit {
   public selectedID;
   public news: News;
   constructor(private route: ActivatedRoute, private router: Router, private serve: DataService) { }
-
+  
   ngOnInit() {
     this.route.paramMap.subscribe(
       params => {

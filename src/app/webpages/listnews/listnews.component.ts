@@ -1,3 +1,4 @@
+
 import {Component, OnInit, Output} from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {News} from '../../entities/News';
@@ -22,6 +23,4 @@ export class ListnewsComponent implements OnInit {
   ngOnInit() {
     this.getNews();
   }
-
-
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-listgroupitem',
@@ -24,5 +24,4 @@ export class ListgroupitemComponent implements OnInit {
     time = this.time.substring(0, 10) + ' ' + this.time.substring(11, 18);
     return time;
   }
-
 }

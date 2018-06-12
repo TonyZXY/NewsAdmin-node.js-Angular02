@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import {Video} from '../../entities/Video';
 
 @Component({
   selector: 'app-listvideo',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListvideoComponent implements OnInit {
 
-  constructor() { }
+  videos: Video[];
+  constructor(private dataservice: DataService) { }
 
   ngOnInit() {
+    this.dataservice.getVideos()
+      .subscribe(videos => this.videos = videos);
   }
 
 }
