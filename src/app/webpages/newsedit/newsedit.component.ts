@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {News} from '../../entities/News';
 
 @Component({
   selector: 'app-newsedit',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newsedit.component.css']
 })
 export class NewseditComponent implements OnInit {
+
+  newsEdit: News
 
   constructor() { }
 

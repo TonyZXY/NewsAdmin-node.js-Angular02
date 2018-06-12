@@ -1,12 +1,10 @@
-export class News {
+export class Genuine {
   publishedTime: string;
   _id: string;
   author: string;
   title: string;
-  newsDescription: string;
-  imageURL: string;
-  localeTag: string;
-  contentTag: string;
+  genuineDescription: string;
+  genuineTag: string;
   url: string;
   __v: number;
   languageTag: string;

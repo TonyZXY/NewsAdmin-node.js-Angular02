@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NewsFlash} from '../../entities/NewsFlash';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-listflash',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listflash.component.css']
 })
 export class ListflashComponent implements OnInit {
-
-  constructor() { }
+  newsFlashes: NewsFlash[];
+  message: string;
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.getNewsflash().subscribe(newsFlashes => this.newsFlashes = newsFlashes);
   }
 
 }

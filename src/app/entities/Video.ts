@@ -1,12 +1,12 @@
-export class News {
+export class Video {
   publishedTime: string;
   _id: string;
   author: string;
   title: string;
-  newsDescription: string;
+  videoDescription: string;
   imageURL: string;
   localeTag: string;
-  contentTag: string;
+  typeTag: string;
   url: string;
   __v: number;
   languageTag: string;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {News} from '../../entities/News';
 
@@ -10,7 +10,8 @@ import {News} from '../../entities/News';
 })
 export class ListnewsComponent implements OnInit {
   newss: News[];
-  constructor(public dataService: DataService) { }
+  message: string;
+  constructor(private dataService: DataService) { }
 
   getNews() {
     this.dataService.getNews()
@@ -20,5 +21,7 @@ export class ListnewsComponent implements OnInit {
     this.getNews();
   }
 
-
+  recieveMessage($event) {
+     this.message = $event;
+  }
 }

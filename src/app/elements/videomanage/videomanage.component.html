@@ -1,11 +1,11 @@
-<form class="col-5" method="post" action="/news/addNews">
+<form class="col-5" method="post" action="/news/addVideo">
   <div class="form-group">
     <label for="exampleInputEmail1">标题</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder={{newsTitle}}>
+    <input type="text" class="form-control" id="exampleInputEmail1" placeholder={{videoTitle}}>
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">作者</label>
-    <input type="text" class="form-control" id="authorLabel" placeholder="{{newsAuthor}}">
+    <input type="text" class="form-control" id="authorLabel" placeholder="{{videoAuthor}}">
   </div>
   <div class="form-group">
     <label>
@@ -40,15 +40,15 @@
   </div>
   <div class="form-group">
     <label for="exampleInputPassword3">简介</label>
-    <input type="text" class="form-control" id="exampleInputPassword3" placeholder="{{newsDescription}}">
+    <input type="text" class="form-control" id="exampleInputPassword3" placeholder="{{videoDescription}}">
   </div>
   <div class="form-group">
     <label for="exampleInputPassword2">图片地址</label>
-    <textarea type="text" class="form-control" rows="5" id="exampleInputPassword2" placeholder="{{newsImageUrl}}"></textarea>
+    <textarea type="text" class="form-control" rows="5" id="exampleInputPassword2" placeholder="{{videoImageUrl}}"></textarea>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">文章地址</label>
-    <textarea type="text" class="form-control" rows="5" id="exampleInputPassword1" placeholder="{{newsUrl}}"></textarea>
+    <label for="exampleInputPassword1">视频地址</label>
+    <textarea type="text" class="form-control" rows="5" id="exampleInputPassword1" placeholder="{{videoUrl}}"></textarea>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

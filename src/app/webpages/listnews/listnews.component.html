@@ -10,9 +10,11 @@
       <br>
       <ul class="list-group">
         <app-listgroupitem
+          (messageEvent)="recieveMessage($event)"
           *ngFor="let n of newss"
           [time]="n.publishedTime"
           [labelTitle]="n.title"
+          [id]="n._id"
         ></app-listgroupitem>
       </ul>
     </div>
