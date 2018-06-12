@@ -25,8 +25,6 @@ import { VideohomeComponent } from './webpages/videohome/videohome.component';
 import { GenuinehomeComponent } from './webpages/genuinehome/genuinehome.component';
 import { FlashhomeComponent } from './webpages/flashhome/flashhome.component';
 import { WelcomeComponent } from './webpages/welcome/welcome.component';
-import { NewsmanageComponent } from './elements/newsmanage/newsmanage.component';
-import { VideomanageComponent } from './elements/videomanage/videomanage.component';
 import { HomeviewComponent } from './elements/homeview/homeview.component';
 
 const appRoutes: Routes = [
@@ -71,8 +69,6 @@ const appRoutes: Routes = [
     GenuinehomeComponent,
     FlashhomeComponent,
     WelcomeComponent,
-    NewsmanageComponent,
-    VideomanageComponent,
     HomeviewComponent
   ],
   imports: [
