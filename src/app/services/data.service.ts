@@ -70,13 +70,37 @@ export class DataService {
     ).subscribe();
     return this.errormessage;
   }
-  addGenuine (genuine: Genuine): string{
+  addGenuine (genuine: Genuine): string {
     this.http.post<Genuine>(this.urlHead + '/genuine', genuine, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;
   }
 
+  deleteNews(_id: string): string {
+    this.http.delete(this.urlHead + '/news' + _id, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+    return this.errormessage;
+  }
+  deleteVideo(_id: string): string {
+    this.http.delete(this.urlHead + '/video' + _id, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+    return this.errormessage;
+  }
+  deleteNewsFlash(_id: string): string {
+    this.http.delete(this.urlHead + '/flashlist' + _id, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+    return this.errormessage;
+  }
+  deleteGeniune(_id: string): string {
+    this.http.delete(this.urlHead + '/genuine' + _id, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+    return this.errormessage;
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
