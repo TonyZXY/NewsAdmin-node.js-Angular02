@@ -27,12 +27,17 @@ import { FlashhomeComponent } from './webpages/flashhome/flashhome.component';
 import { WelcomeComponent } from './webpages/welcome/welcome.component';
 import { HomeviewComponent } from './elements/homeview/homeview.component';
 import { FormsModule } from '@angular/forms';
+=======
+import {FormsModule} from '@angular/forms';
+import { AddgenuineComponent } from './webpages/addgenuine/addgenuine.component';
+>>>>>>> Add_Pages
 
 const appRoutes: Routes = [
   { path: 'news/edit/:id', component: NewseditComponent},
   { path: 'genuine/edit/:id', component: GenuineeditComponent},
   { path: 'video/edit/:id', component: VideoeditComponent},
   { path: 'flash/edit/:id', component: FlasheditComponent},
+<<<<<<< HEAD
   { path: 'flash/list', component: ListflashComponent},
   { path: 'video/list', component: ListvideoComponent},
   { path: 'genuine/list', component: ListgeniuneComponent},
@@ -45,6 +50,12 @@ const appRoutes: Routes = [
   { path: 'flash', component: FlashhomeComponent },
   { path: 'video', component: VideohomeComponent },
   { path: 'genuine', component: GenuinehomeComponent }
+=======
+  { path: '', component: AddnewsComponent},
+  { path: 'flash', component: ListflashComponent },
+  { path: 'video', component: ListvideoComponent },
+  { path: 'genuine', component: ListgeniuneComponent}
+>>>>>>> Add_Pages
 ];
 @NgModule({
   declarations: [
@@ -64,6 +75,7 @@ const appRoutes: Routes = [
     AddflashComponent,
     AddvideoComponent,
     AddnewsComponent,
+<<<<<<< HEAD
     AddgeniuneComponent,
     NewshomeComponent,
     VideohomeComponent,
@@ -71,12 +83,20 @@ const appRoutes: Routes = [
     FlashhomeComponent,
     WelcomeComponent,
     HomeviewComponent
+=======
+    AddgenuineComponent
+>>>>>>> Add_Pages
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+<<<<<<< HEAD
     FormsModule,
     RouterModule.forRoot(appRoutes)
+=======
+    RouterModule.forRoot(appRoutes),
+    FormsModule
+>>>>>>> Add_Pages
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

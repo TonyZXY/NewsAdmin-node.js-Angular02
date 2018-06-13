@@ -10,4 +10,5 @@ export class News {
   url: string;
   __v: number;
   languageTag: string;
+
 }
