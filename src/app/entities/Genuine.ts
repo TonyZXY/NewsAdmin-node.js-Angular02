@@ -6,6 +6,7 @@ export class Genuine {
   genuineDescription: string;
   genuineTag: string;
   url: string;
+  imageURL: string;
   __v: number;
   languageTag: string;
 }

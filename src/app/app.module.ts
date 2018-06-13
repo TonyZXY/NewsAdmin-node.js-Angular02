@@ -19,16 +19,15 @@ import { ListvideoComponent } from './webpages/listvideo/listvideo.component';
 import { AddflashComponent } from './webpages/addflash/addflash.component';
 import { AddvideoComponent } from './webpages/addvideo/addvideo.component';
 import { AddnewsComponent } from './webpages/addnews/addnews.component';
-import { AddgeniuneComponent } from './webpages/addgeniune/addgeniune.component';
-import { NewsmanageComponent } from './elements/newsmanage/newsmanage.component';
-import { VideomanageComponent } from './elements/videomanage/videomanage.component';
+import {FormsModule} from '@angular/forms';
+import { AddgenuineComponent } from './webpages/addgenuine/addgenuine.component';
 
 const appRoutes: Routes = [
   { path: 'news/edit/:id', component: NewseditComponent},
   { path: 'genuine/edit/:id', component: GenuineeditComponent},
   { path: 'video/edit/:id', component: VideoeditComponent},
   { path: 'flash/edit/:id', component: FlasheditComponent},
-  { path: '', component: ListnewsComponent},
+  { path: '', component: AddnewsComponent},
   { path: 'flash', component: ListflashComponent },
   { path: 'video', component: ListvideoComponent },
   { path: 'genuine', component: ListgeniuneComponent}
@@ -51,14 +50,13 @@ const appRoutes: Routes = [
     AddflashComponent,
     AddvideoComponent,
     AddnewsComponent,
-    AddgeniuneComponent,
-    NewsmanageComponent,
-    VideomanageComponent
+    AddgenuineComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

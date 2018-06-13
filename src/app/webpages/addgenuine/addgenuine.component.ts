@@ -1,25 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import {NewsFlash} from '../../entities/NewsFlash';
+import {Genuine} from '../../entities/Genuine';
 import {DataService} from '../../services/data.service';
 
 @Component({
-  selector: 'app-addflash',
-  templateUrl: './addflash.component.html',
-  styleUrls: ['./addflash.component.css']
+  selector: 'app-addgenuine',
+  templateUrl: './addgenuine.component.html',
+  styleUrls: ['./addgenuine.component.css']
 })
-export class AddflashComponent implements OnInit {
-  newsFlashToAdd = new NewsFlash;
+export class AddgenuineComponent implements OnInit {
+  genuineToAdd = new Genuine;
   private messageTitle: string;
   private messageBody: string;
   succeeded: boolean;
+
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
   }
 
   onSubmit() {
-    console.log(this.newsFlashToAdd);
-    const errorMessage = this.dataService.addNewsFlash(this.newsFlashToAdd);
+    console.log(this.genuineToAdd);
+    const errorMessage = this.dataService.addGenuine(this.genuineToAdd);
     if (errorMessage === '') {
       this.messageTitle = '成功添加原创文章';
       this.messageBody = '已成功向数据库添加一条新的原创文章';
