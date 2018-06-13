@@ -45,26 +45,26 @@ export class DataService {
   addNews (news: News): string {
     this.http.post<News>(this.urlHead + '/news', news, httpOptions).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
     return this.errormessage;
   }
 
   addVideo (video: Video): string {
-    this.http.post<News>(this.urlHead + '/video', video, httpOptions).pipe(
+    this.http.post<Video>(this.urlHead + '/video', video, httpOptions).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
     return this.errormessage;
   }
   addNewsFlash (newsflash: NewsFlash): string {
-    this.http.post<News>(this.urlHead + '/flashlist', newsflash, httpOptions).pipe(
+    this.http.post<NewsFlash>(this.urlHead + '/flashlist', newsflash, httpOptions).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
     return this.errormessage;
   }
   addGenuine (genuine: Genuine): string{
-    this.http.post<News>(this.urlHead + '/genuine', genuine, httpOptions).pipe(
+    this.http.post<Genuine>(this.urlHead + '/genuine', genuine, httpOptions).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
     return this.errormessage;
   }
 
