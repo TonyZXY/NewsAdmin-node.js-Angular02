@@ -57,7 +57,6 @@ export class DataService {
     ).subscribe();
     return this.errormessage;
   }
-
   addVideo (video: Video): string {
     this.http.post<Video>(this.urlHead + '/video', video, httpOptions).pipe(
       catchError(this.handleError)
@@ -72,6 +71,12 @@ export class DataService {
   }
   addGenuine (genuine: Genuine): string{
     this.http.post<Genuine>(this.urlHead + '/genuine', genuine, httpOptions).pipe(
+      catchError(this.handleError)
+    ).subscribe();
+    return this.errormessage;
+  }
+  editNews (news: News): string {
+    this.http.put<News>(this.urlHead + '/news/' + news._id , news , httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;

@@ -6,92 +6,173 @@
     <div class="col-sm-10">
       <br>
       <br>
-      <form class="col-8" method="post">
+      <form class="col-8"
+            method="post"
+            #editNewsForm="ngForm">
         <div class="form-group">
           <h3>新闻编辑</h3>
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">标题</label>
-          <input ngModel name="title" #title="ngModel" (click)="log(title)" type="text" class="form-control" id="exampleInputEmail1" value="{{news?.title}}">
-          <div hidden *ngIf="title.pristine" [title]="news?.title"></div>
-          <div class="alert alert-danger" *ngIf="title.dirty">Data changed</div>
+          <input
+            [(ngModel)]="newsToEdit.title"
+            name="title" #title="ngModel"
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            value="{{news?.title}}">
         </div>
         <div class="form-group">
           <label>
             标签
           </label><br>
-          <label>
-            {{news?.localeTag}}
-          </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                   [checked]="news?.localeTag==='国内'">
-            <label class="form-check-label" for="exampleRadios1">
+            <input
+              [(ngModel)]="newsToEdit.localeTag"
+              class="form-check-input"
+              type="radio"
+              name="localeTag"
+              #localeTag="ngModel"
+              id="nationalTag"
+              value="国内"
+              [checked]="news?.localeTag==='国内'">
+            <label class="form-check-label" for="nationalTag">
               国内
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"
-                   [checked]="news?.localeTag==='国际'" >
-            <label class="form-check-label" for="exampleRadios2">
+            <input
+              [(ngModel)]="newsToEdit.localeTag"
+              class="form-check-input"
+              type="radio"
+              name="localeTag"
+              #localeTag="ngModel"
+              id="internationalTag"
+              value="国际"
+              [checked]="news?.localeTag==='国际'">
+            <label class="form-check-label" for="internationalTag">
               国际
             </label>
           </div>
         </div>
         <div class="form-group">
-          <label>
-            {{news?.contentTag}}
-          </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="option1"
-                   [checked]="news?.contentTag==='趋势'">
-            <label class="form-check-label" for="exampleRadios1">
+            <input
+              [(ngModel)]="newsToEdit.contentTag"
+              class="form-check-input"
+              type="radio"
+              name="contentTag"
+              #contentTag="ngModel"
+              id="contentTag1"
+              value="趋势"
+              [checked]="news?.contentTag==='趋势'">
+            <label class="form-check-label" for="contentTag1">
               趋势
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2" value="option2" [checked]="news?.contentTag==='深度'">
-            <label class="form-check-label" for="exampleRadios2">
+            <input
+              [(ngModel)]="newsToEdit.contentTag"
+              class="form-check-input"
+              type="radio"
+              name="contentTag"
+              #contentTag="ngModel"
+              id="contentTag2"
+              value="深度"
+              [checked]="news?.contentTag==='深度'">
+            <label class="form-check-label" for="contentTag2">
               深度
             </label>
           </div>
         </div>
         <div class="form-group">
-          <label>
-            {{news?.languageTag}}
-          </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="language" id="language1" value="CN" [checked]="news?.languageTag==='CN'">
+            <input
+              [(ngModel)]="newsToEdit.languageTag"
+              class="form-check-input"
+              type="radio"
+              name="languageTag"
+              #languageTag="ngModel"
+              id="language1"
+              value="CN"
+              [checked]="news?.languageTag==='CN'">
             <label class="form-check-label" for="language1">
               CN
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="language" id="language2" value="EN" [checked]="news?.languageTag==='EN'">
+            <input
+              [(ngModel)]="newsToEdit.languageTag"
+              class="form-check-input"
+              type="radio"
+              name="languageTag"
+              #languageTag="ngModel"
+              id="language2"
+              value="EN"
+              [checked]="news?.languageTag==='EN'">
             <label class="form-check-label" for="language2">
               EN
             </label>
           </div>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">简介</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{news?.newsDescription}}">
-          <label>{{news?.newsDescription}}</label>
+          <label for="newsDescription">简介</label>
+          <textarea
+            [(ngModel)]="newsToEdit.newsDescription"
+            name="newsDescription"
+            #newsDescription="ngModel"
+            class="form-control"
+            id="newsDescription"
+            placeholder="{{news?.newsDescription}}">
+          </textarea>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">图片地址</label>
-          <textarea class="form-control" id="imageUrl" name="imageUrl" placeholder="{{news?.imageURL}}"></textarea>
-          <label>{{news?.imageURL}}</label>
+          <label for="imageUrl">图片地址</label>
+          <textarea
+            [(ngModel)]="newsToEdit.imageURL"
+            class="form-control"
+            id="imageUrl"
+            name="imageUrl"
+            #imageUrl="ngModel"
+            placeholder="{{news?.imageURL}}">
+          </textarea>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">文章地址</label>
-          <textarea class="form-control" id="url" name="url" placeholder="{{news?.url}}"></textarea>
-          <label>{{news?.url}}</label>
+          <label for="url">文章地址</label>
+          <textarea
+            [(ngModel)]="newsToEdit.url"
+            class="form-control"
+            id="url"
+            name="url"
+            #url="ngModel"
+            placeholder="{{news?.url}}">
+          </textarea>
         </div>
-        <!--<input type="text"  hidden>-->
-        <button formaction="/submitNewsAdd" type="submit" class="btn btn-primary">Submit</button>
+        <button (click)="onSubmit()" class="btn btn-primary" data-toggle="modal" data-target="#informationDialog">Submit</button>
         <br><br>
-        <button formaction="/deleteNews" type="submit" class="btn btn-danger">Delete</button>
+        <button (click)="onDelete()" class="btn btn-danger">Delete</button>
+
+        <div class="modal fade" id="informationDialog" tabindex="-1" role="dialog"
+             aria-labelledby="informationDialogTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="informationDialogTitle">{{messageTitle}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                {{messageBody}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/news/list"
+                        (click)="succeeded ? (succeeded=false):false">Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </div>
