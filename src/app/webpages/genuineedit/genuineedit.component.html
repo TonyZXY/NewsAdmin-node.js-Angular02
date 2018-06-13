@@ -46,13 +46,15 @@
             {{genuine?.languageTag}}
           </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="language" id="language1" value="CN" checked>
+            <input class="form-check-input" type="radio" name="language" id="language1" value="CN"
+                   [checked]="genuine?.languageTag==='CN'">
             <label class="form-check-label" for="language1">
               CN
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="language" id="language2" value="EN">
+            <input class="form-check-input" type="radio" name="language" id="language2" value="EN"
+                   [checked]="genuine?.languageTag==='EN'">
             <label class="form-check-label" for="language2">
               EN
             </label>
