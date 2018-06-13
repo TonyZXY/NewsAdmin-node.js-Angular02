@@ -21,21 +21,40 @@
           </label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                   checked>
+                   [checked]="genuine?.genuineTag==='原创文章'">
             <label class="form-check-label" for="exampleRadios1">
               原创文章
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"
+                   [checked]="genuine?.genuineTag==='百科'">
             <label class="form-check-label" for="exampleRadios2">
               百科
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"
+                   [checked]="genuine?.genuineTag==='分析'">
             <label class="form-check-label" for="exampleRadios2">
               分析
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>
+            {{genuine?.languageTag}}
+          </label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="language" id="language1" value="CN" checked>
+            <label class="form-check-label" for="language1">
+              CN
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="language" id="language2" value="EN">
+            <label class="form-check-label" for="language2">
+              EN
             </label>
           </div>
         </div>

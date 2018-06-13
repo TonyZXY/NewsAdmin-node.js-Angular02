@@ -14,6 +14,7 @@ export class NewseditComponent implements OnInit {
   public string = 'news';
   public selectedID;
   public news: News;
+  public editedNews: News;
   constructor(private route: ActivatedRoute, private router: Router, private serve: DataService) { }
 
   ngOnInit() {
@@ -24,5 +25,7 @@ export class NewseditComponent implements OnInit {
       }
     );
   }
+
+  log(x) { console.log(x); }
 
 }

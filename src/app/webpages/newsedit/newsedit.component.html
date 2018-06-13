@@ -12,7 +12,9 @@
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">标题</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="{{news?.title}}">
+          <input ngModel name="title" #title="ngModel" (click)="log(title)" type="text" class="form-control" id="exampleInputEmail1" value="{{news?.title}}">
+          <div hidden *ngIf="title.pristine" [title]="news?.title"></div>
+          <div class="alert alert-danger" *ngIf="title.dirty">Data changed</div>
         </div>
         <div class="form-group">
           <label>
@@ -23,13 +25,14 @@
           </label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                   checked>
+                   [checked]="news?.localeTag==='国内'">
             <label class="form-check-label" for="exampleRadios1">
               国内
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"
+                   [checked]="news?.localeTag==='国际'" >
             <label class="form-check-label" for="exampleRadios2">
               国际
             </label>
@@ -41,15 +44,32 @@
           </label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="option1"
-                   checked>
+                   [checked]="news?.contentTag==='趋势'">
             <label class="form-check-label" for="exampleRadios1">
               趋势
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2" value="option2">
+            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2" value="option2" [checked]="news?.contentTag==='深度'">
             <label class="form-check-label" for="exampleRadios2">
               深度
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>
+            {{news?.languageTag}}
+          </label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="language" id="language1" value="CN" [checked]="news?.languageTag==='CN'">
+            <label class="form-check-label" for="language1">
+              CN
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="language" id="language2" value="EN" [checked]="news?.languageTag==='EN'">
+            <label class="form-check-label" for="language2">
+              EN
             </label>
           </div>
         </div>
@@ -68,6 +88,7 @@
           <textarea class="form-control" id="url" name="url" placeholder="{{news?.url}}"></textarea>
           <label>{{news?.url}}</label>
         </div>
+        <!--<input type="text"  hidden>-->
         <button formaction="/submitNewsAdd" type="submit" class="btn btn-primary">Submit</button>
         <br><br>
         <button formaction="/deleteNews" type="submit" class="btn btn-danger">Delete</button>

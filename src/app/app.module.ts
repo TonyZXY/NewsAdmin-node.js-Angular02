@@ -26,6 +26,7 @@ import { GenuinehomeComponent } from './webpages/genuinehome/genuinehome.compone
 import { FlashhomeComponent } from './webpages/flashhome/flashhome.component';
 import { WelcomeComponent } from './webpages/welcome/welcome.component';
 import { HomeviewComponent } from './elements/homeview/homeview.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'news/edit/:id', component: NewseditComponent},
@@ -74,6 +75,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [DataService],
