@@ -27,16 +27,17 @@ import { FlashhomeComponent } from './webpages/flashhome/flashhome.component';
 import { WelcomeComponent } from './webpages/welcome/welcome.component';
 import { HomeviewComponent } from './elements/homeview/homeview.component';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
   { path: 'news/edit/:id', component: NewseditComponent},
   { path: 'genuine/edit/:id', component: GenuineeditComponent},
   { path: 'video/edit/:id', component: VideoeditComponent},
   { path: 'flash/edit/:id', component: FlasheditComponent},
-  { path: 'flash/list', component: ListflashComponent},
-  { path: 'video/list', component: ListvideoComponent},
-  { path: 'genuine/list', component: ListgeniuneComponent},
-  { path: 'news/list', component: ListnewsComponent},
+  { path: 'flash/list', component: ListflashComponent, runGuardsAndResolvers: 'always'},
+  { path: 'video/list', component: ListvideoComponent, runGuardsAndResolvers: 'always'},
+  { path: 'genuine/list', component: ListgeniuneComponent, runGuardsAndResolvers: 'always'},
+  { path: 'news/list', component: ListnewsComponent, runGuardsAndResolvers: 'always'},
   { path: 'news/add', component: AddnewsComponent},
   { path: 'news/search', component: ListnewsComponent},
   { path: 'video/add', component: AddvideoComponent},
@@ -78,10 +79,11 @@ const appRoutes: Routes = [
     AddgenuineComponent
   ],
   imports: [
+    NgbModule.forRoot(),
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload'})
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

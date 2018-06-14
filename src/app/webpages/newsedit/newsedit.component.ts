@@ -3,7 +3,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 import {DataService} from '../../services/data.service';
 import {News} from '../../entities/News';
-import {Observable} from 'rxjs';
+import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-newsedit',
@@ -18,7 +18,7 @@ export class NewseditComponent implements OnInit {
   private messageTitle: string;
   private messageBody: string;
   succeeded: boolean;
-  constructor(private route: ActivatedRoute, private router: Router, private serve: DataService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private serve: DataService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
@@ -29,7 +29,6 @@ export class NewseditComponent implements OnInit {
     );
   }
   onSubmit() {
-    console.log(this.newsToEdit);
     if (this.newsToEdit.newsDescription) {
       this.news.newsDescription = this.newsToEdit.newsDescription;
     }
@@ -61,9 +60,12 @@ export class NewseditComponent implements OnInit {
     }
     console.log(errorMessage);
   }
-  onDelete() {
-    console.log(this.news);
-    console.log(this.news._id);
+
+  openDelete(content){
+    this.modalService.open(content, {centered: true});
+  }
+  onDelete(id) {
+    this.serve.deleteNews(id);
   }
 
 }

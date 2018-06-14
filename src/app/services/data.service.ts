@@ -81,31 +81,56 @@ export class DataService {
     ).subscribe();
     return this.errormessage;
   }
+  editFlash (flash: NewsFlash): string {
+    this.http.put<NewsFlash>(this.urlHead + '/flash/' + flash._id, flash, httpOptions).pipe(
+      catchError(this.handleError)
+    ).subscribe();
+    return this.errormessage;
+  }
+  editVideo (video: Video): string {
+    this.http.put<Video>(this.urlHead + '/videos/' + video._id, video, httpOptions).pipe(
+      catchError(this.handleError)
+    ).subscribe();
+    return this.errormessage;
+  }
+  editGenuine (genuine: Genuine): string {
+    console.log('Dataservice: ' + genuine);
+    this.http.put<Genuine>(this.urlHead + '/genuine/' + genuine._id, genuine, httpOptions).pipe(
+      catchError(this.handleError)
+    ).subscribe();
+    return this.errormessage;
+  }
 
   deleteNews(_id: string): string {
-    this.http.delete(this.urlHead + '/news' + _id, httpOptions).pipe(
+    this.http.delete(this.urlHead + '/news/' + _id, httpOptions).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
     return this.errormessage;
   }
   deleteVideo(_id: string): string {
-    this.http.delete(this.urlHead + '/video' + _id, httpOptions).pipe(
+    this.http.delete(this.urlHead + '/videos/' + _id, httpOptions).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
     return this.errormessage;
   }
   deleteNewsFlash(_id: string): string {
-    this.http.delete(this.urlHead + '/flashlist' + _id, httpOptions).pipe(
+    this.http.delete(this.urlHead + '/flash/' + _id, httpOptions).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
     return this.errormessage;
   }
-  deleteGeniune(_id: string): string {
-    this.http.delete(this.urlHead + '/genuine' + _id, httpOptions).pipe(
+  deleteGenuine(_id: string): string {
+    this.http.delete(this.urlHead + '/genuine/' + _id).pipe(
       catchError(this.handleError)
-    );
+    ).subscribe();
     return this.errormessage;
   }
+
+  // deleteGenuine(_id: string): Observable<{}> {
+  //    return this.http.delete(this.urlHead + '/genuine/' + _id, httpOptions).pipe(
+  //     catchError(this.handleError)
+  //   );
+  // }
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

@@ -8,6 +8,7 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./addflash.component.css']
 })
 export class AddflashComponent implements OnInit {
+  public string = 'flash';
   newsFlashToAdd = new NewsFlash;
   private messageTitle: string;
   private messageBody: string;

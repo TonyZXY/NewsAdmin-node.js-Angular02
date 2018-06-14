@@ -13,68 +13,165 @@
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">标题</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="{{genuine?.title}}">
+          <input
+            [(ngModel)]="genuineToEdit.title"
+            name="title"
+            #title="ngModel"
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            value="{{genuine?.title}}">
         </div>
         <div class="form-group">
           <label>
             标签
           </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                   [checked]="genuine?.genuineTag==='原创文章'">
-            <label class="form-check-label" for="exampleRadios1">
+            <input
+              [(ngModel)]="genuineToEdit.genuineTag"
+              class="form-check-input"
+              type="radio"
+              name="genuineTag"
+              #genuineTag="ngModel"
+              id="genuineTag1"
+              value="原创文章"
+              [checked]="genuine?.genuineTag==='原创文章'">
+            <label class="form-check-label" for="genuineTag1">
               原创文章
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"
-                   [checked]="genuine?.genuineTag==='百科'">
-            <label class="form-check-label" for="exampleRadios2">
+            <input
+              [(ngModel)]="genuineToEdit.genuineTag"
+              class="form-check-input"
+              type="radio"
+              name="genuineTag"
+              #genuineTag="ngModel"
+              id="genuineTag2"
+              value="百科"
+              [checked]="genuine?.genuineTag==='百科'">
+            <label class="form-check-label" for="genuineTag2">
               百科
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"
-                   [checked]="genuine?.genuineTag==='分析'">
-            <label class="form-check-label" for="exampleRadios2">
+            <input
+              [(ngModel)]="genuineToEdit.genuineTag"
+              class="form-check-input"
+              type="radio"
+              name="genuineTag"
+              #genuineTag="ngModel"
+              id="genuineTag3"
+              value="分析"
+              [checked]="genuine?.genuineTag==='分析'">
+            <label class="form-check-label" for="genuineTag3">
               分析
             </label>
           </div>
         </div>
         <div class="form-group">
-          <label>
-            {{genuine?.languageTag}}
-          </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="language" id="language1" value="CN"
-                   [checked]="genuine?.languageTag==='CN'">
+            <input
+              [(ngModel)]="genuineToEdit.languageTag"
+              class="form-check-input"
+              type="radio"
+              name="languageTag"
+              #languageTag="ngModel"
+              id="language1"
+              value="CN"
+              [checked]="genuine?.languageTag==='CN'">
             <label class="form-check-label" for="language1">
               CN
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="language" id="language2" value="EN"
-                   [checked]="genuine?.languageTag==='EN'">
+            <input
+              [(ngModel)]="genuineToEdit.languageTag"
+              class="form-check-input"
+              type="radio"
+              name="languageTag"
+              #languageTag="ngModel"
+              id="language2"
+              value="EN"
+              [checked]="genuine?.languageTag==='EN'">
             <label class="form-check-label" for="language2">
               EN
             </label>
           </div>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">简介</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="{{genuine?.genuineDescription}}">
+          <label for="genuineDescription">简介</label>
+          <textarea
+            [(ngModel)]="genuineToEdit.genuineDescription"
+            name="newsDescription"
+            #newsDescription="ngModel"
+            class="form-control"
+            id="genuineDescription"
+            value="{{genuine?.genuineDescription}}">
+          </textarea></div>
+        <div class="form-group">
+          <label for="imageUrl">图片地址</label>
+          <textarea
+            [(ngModel)]="genuineToEdit.imageURL"
+            class="form-control"
+            id="imageUrl"
+            name="imageUrl"
+            #imageUrl="ngModel"
+            value="{{genuine?.imageURL}}">
+          </textarea>
         </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">图片地址</label>
-          <textarea class="form-control" id="imageURL" name="imageURL" placeholder="{{genuine?.imageURL}}"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">文章地址</label>
-          <textarea class="form-control" id="url" name="url" placeholder="{{genuine?.url}}"></textarea>
-        </div>
-        <button formaction="/genuine/edit/{{genuine?._id}}" type="submit" class="btn btn-primary">Submit</button>
+          <label for="url">文章地址</label>
+          <textarea
+            [(ngModel)]="genuineToEdit.url"
+            class="form-control"
+            id="url"
+            name="url"
+            #url="ngModel"
+            value="{{genuine?.url}}">
+          </textarea></div>
+        <button (click)="onSubmit()" class="btn btn-primary" data-toggle="modal" data-target="#informationDialog">
+          Submit
+        </button>
         <br><br>
-        <button formaction="/genuine/delete/{{genuine?._id}}" type="submit" class="btn btn-danger">Delete</button>
+        <button (click)="openDelete(content)" class="btn btn-danger">Delete</button>
+
+        <div class="modal fade" id="informationDialog" tabindex="-1" role="dialog"
+             aria-labelledby="informationDialogTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="informationDialogTitle">{{messageTitle}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                {{messageBody}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/genuine/list"
+                        (click)="succeeded ? (succeeded=false):false">Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #content let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title">确认删除</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>确认删除原创文章： {{genuine.title}} ？</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" routerLink="/genuine/list" (click)="d(onDelete(genuine._id))" >Delete</button>
+            <button type="button" class="btn btn-primary" (click)="c('Close click')">Close</button>
+          </div>
+        </ng-template>
       </form>
     </div>
   </div>

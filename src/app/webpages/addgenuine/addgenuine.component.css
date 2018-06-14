@@ -1,7 +1,4 @@
-.container-fluid{
-  padding-top:120px ;
-  padding-bottom: 50px;
-}
+
 .ng-valid[required], .ng-valid.required  {
   border-left: 5px solid #42A948; /* green */
 }

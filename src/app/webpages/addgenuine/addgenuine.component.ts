@@ -8,6 +8,7 @@ import {DataService} from '../../services/data.service';
   styleUrls: ['./addgenuine.component.css']
 })
 export class AddgenuineComponent implements OnInit {
+  public string = 'genuine';
   genuineToAdd = new Genuine;
   private messageTitle: string;
   private messageBody: string;

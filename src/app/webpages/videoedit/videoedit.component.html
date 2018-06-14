@@ -12,38 +12,72 @@
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">标题</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="{{video?.title}}">
+          <input
+            [(ngModel)]="videoToEdit.title"
+            name="title" #title="ngModel"
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            value="{{video?.title}}">
         </div>
         <div class="form-group">
           <label>
             标签
           </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                   [checked]="video?.localeTag==='国内'">
-            <label class="form-check-label" for="exampleRadios1">
+            <input
+              [(ngModel)]="videoToEdit.localeTag"
+              class="form-check-input"
+              type="radio"
+              name="localeTag"
+              #localeTag="ngModel"
+              id="nationalTag"
+              value="国内"
+              [checked]="video?.localeTag==='国内'">
+            <label class="form-check-label" for="nationalTag">
               国内
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" [checked]="video?.localeTag==='国际'">
-            <label class="form-check-label" for="exampleRadios2">
+            <input
+              [(ngModel)]="videoToEdit.localeTag"
+              class="form-check-input"
+              type="radio"
+              name="localeTag"
+              #localeTag="ngModel"
+              id="internationalTag"
+              value="国际"
+              [checked]="video?.localeTag==='国际'">
+            <label class="form-check-label" for="internationalTag">
               国际
             </label>
           </div>
         </div>
         <div class="form-group">
-          <label>
-            {{video?.languageTag}}
-          </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="language" id="language1" value="CN" [checked]="video?.languageTag==='CN'">
+            <input
+              [(ngModel)]="videoToEdit.languageTag"
+              class="form-check-input"
+              type="radio"
+              name="languageTag"
+              #languageTag="ngModel"
+              id="language1"
+              value="CN"
+              [checked]="video?.languageTag==='CN'">
             <label class="form-check-label" for="language1">
               CN
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="language" id="language2" value="EN" [checked]="video?.languageTag==='EN'">
+            <input
+              [(ngModel)]="videoToEdit.languageTag"
+              class="form-check-input"
+              type="radio"
+              name="languageTag"
+              #languageTag="ngModel"
+              id="language2"
+              value="EN"
+              [checked]="video?.languageTag==='EN'">
             <label class="form-check-label" for="language2">
               EN
             </label>
@@ -51,19 +85,77 @@
         </div>
         <div class="form-group">
           <label>简介</label>
-          <textarea class="form-control" name="videoDescription" id="videoDescription" placeholder="{{video?.videoDescription}}"></textarea>
+          <textarea
+            [(ngModel)]="videoToEdit.videoDescription"
+            name="newsDescription"
+            #newsDescription="ngModel"
+            class="form-control"
+            id="newsDescription"
+            value="{{video?.videoDescription}}">
+          </textarea>
         </div>
         <div class="form-group">
           <label>图片地址</label>
-          <textarea class="form-control" name="imageURL" id="imageURL" placeholder="{{video?.imageURL}}"></textarea>
+          <textarea
+            [(ngModel)]="videoToEdit.imageURL"
+            class="form-control"
+            id="imageUrl"
+            name="imageUrl"
+            #imageUrl="ngModel"
+            value="{{video?.imageURL}}">
+          </textarea>
         </div>
         <div class="form-group">
           <label>视频地址</label>
-          <textarea class="form-control" name="url" id="url" placeholder="{{video?.url}}"></textarea>
+          <textarea
+            [(ngModel)]="videoToEdit.url"
+            class="form-control"
+            id="url"
+            name="url"
+            #url="ngModel"
+            value="{{video?.url}}">
+          </textarea>
         </div>
-        <button formaction="/submitNewsAdd" type="submit" class="btn btn-primary">Submit</button>
+        <button (click)="onSubmit()" class="btn btn-primary" data-toggle="modal" data-target="#informationDialog">Submit</button>
         <br><br>
-        <button formaction="/deleteNews" type="submit" class="btn btn-danger">Delete</button>
+        <button (click)="openDelete(content)" class="btn btn-danger">Delete</button>
+
+        <div class="modal fade" id="informationDialog" tabindex="-1" role="dialog"
+             aria-labelledby="informationDialogTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="informationDialogTitle">{{messageTitle}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                {{messageBody}}
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/video/list"
+                        (click)="succeeded ? (succeeded=false):false">Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ng-template #content let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title">确认删除</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>确认删除原创文章： {{video.title}} ？</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" routerLink="/video/list" (click)="d(onDelete(video._id))" >Delete</button>
+            <button type="button" class="btn btn-primary" (click)="c('Close click')">Close</button>
+          </div>
+        </ng-template>
       </form>
     </div>
   </div>
