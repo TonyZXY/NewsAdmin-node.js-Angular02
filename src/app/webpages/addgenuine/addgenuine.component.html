@@ -5,76 +5,197 @@
       <app-toolbar [parentPath]="string"></app-toolbar>
     </div>
     <div class="col-sm-10">
-      <form class="col-7" method="post" action="/genuine/addGenuine" (ngSubmit)="onSubmit()" #addGenuineForm = "ngForm">
+      <form
+        class="col-7"
+        method="post"
+        action="/genuine/addGenuine"
+        (ngSubmit)="onSubmit()"
+        #addGenuineForm = "ngForm">
         <div class="form-group">
           <label for="titleLabel">标题</label>
-          <input type="text" class="form-control" id="titleLabel" name="titleLabel" required [(ngModel)]="genuineToAdd.title" name="title" #title="ngModel">
-          <label for="titleLabel" [hidden]="title.valid || !(title.dirty || title.touched)" class="alert alert-danger col-12">*未输入标题</label>
+          <input
+            type="text"
+            class="form-control"
+            id="titleLabel"
+            required
+            [(ngModel)]="genuineToAdd.title"
+            name="title"
+            #title="ngModel">
+          <label
+            for="titleLabel"
+            [hidden]="title.valid || !(title.dirty || title.touched)"
+            class="alert alert-danger col-12">
+            *未输入标题
+          </label>
         </div>
         <div class="form-group">
           <label for="authorLabel">作者</label>
-          <input type="text" class="form-control" id="authorLabel" required [(ngModel)]="genuineToAdd.author" name="author" #author="ngModel">
-          <label for="authorLabel" [hidden]="author.valid || !(author.dirty || author.touched)" class="alert alert-danger col-12">*未输入作者</label>
+          <input
+            type="text"
+            class="form-control"
+            id="authorLabel"
+            required
+            [(ngModel)]="genuineToAdd.author"
+            name="author"
+            #author="ngModel">
+          <label
+            for="authorLabel"
+            [hidden]="author.valid || !(author.dirty || author.touched)"
+            class="alert alert-danger col-12">
+            *未输入作者
+          </label>
         </div>
         <label>
           标签
         </label>
         <div class="form-group">
           <div class="form-check" >
-            <input class="form-check-input" type="radio" id="genuinePage" value="原创文章" required [(ngModel)]="genuineToAdd.genuineTag" name="genuineTag" #genuineTag = "ngModel">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="genuinePage"
+              value="原创文章"
+              required
+              [(ngModel)]="genuineToAdd.genuineTag"
+              name="genuineTag"
+              #genuineTag = "ngModel">
             <label class="form-check-label" for="genuinePage">
               原创文章
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="wiki" value="百科" required [(ngModel)]="genuineToAdd.genuineTag" name="genuineTag" #genuineTag = "ngModel">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="wiki"
+              value="百科"
+              required
+              [(ngModel)]="genuineToAdd.genuineTag"
+              name="genuineTag"
+              #genuineTag = "ngModel">
             <label class="form-check-label" for="wiki">
               百科
             </label>
           </div>
           <div class="form-check" >
-            <input class="form-check-input" type="radio" id="analysis" value="分析" required [(ngModel)]="genuineToAdd.genuineTag" name="genuineTag" #genuineTag = "ngModel">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="analysis"
+              value="分析"
+              required
+              [(ngModel)]="genuineToAdd.genuineTag"
+              name="genuineTag"
+              #genuineTag = "ngModel">
             <label class="form-check-label" for="analysis">
               分析
             </label>
           </div>
-          <label *ngIf="genuineTag.touched && genuineTag.invalid" class="alert alert-danger col-12">*未选择文章类型标签</label>
+          <label
+            *ngIf="genuineTag.touched && genuineTag.invalid"
+            class="alert alert-danger col-12">
+            *未选择文章类型标签
+          </label>
         </div>
         <label>
           语言
         </label>
         <div class="form-group">
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="cn_language" value="CN" required [(ngModel)]="genuineToAdd.languageTag" name="languageTag" #languageTag="ngModel">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="cn_language"
+              value="CN"
+              required
+              [(ngModel)]="genuineToAdd.languageTag"
+              name="languageTag"
+              #languageTag="ngModel">
             <label class="form-check-label" for="cn_language">
               中文
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" id="en_language" value="EN" required [(ngModel)]="genuineToAdd.languageTag" name="languageTag" #languageTag="ngModel">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="en_language"
+              value="EN"
+              required
+              [(ngModel)]="genuineToAdd.languageTag"
+              name="languageTag"
+              #languageTag="ngModel">
             <label class="form-check-label" for="en_language">
               英文
             </label>
           </div>
-          <label *ngIf="languageTag.touched && languageTag.invalid" class="alert alert-danger col-12">*未选择语言标签</label>
+          <label
+            *ngIf="languageTag.touched && languageTag.invalid"
+            class="alert alert-danger col-12">
+            *未选择语言标签
+          </label>
         </div>
 
         <div class="form-group">
           <label for="descriptionLabel">简介</label>
-          <input type="text" class="form-control" id="descriptionLabel" required [(ngModel)]="genuineToAdd.genuineDescription" name="genuineDescription" #genuineDescription = "ngModel">
-          <label for="descriptionLabel" [hidden]="genuineDescription.valid || !(genuineDescription.dirty || genuineDescription.touched)" class="alert alert-danger col-12">*未输入简介</label>
+          <input
+            type="text"
+            class="form-control"
+            id="descriptionLabel"
+            required
+            [(ngModel)]="genuineToAdd.genuineDescription"
+            name="genuineDescription"
+            #genuineDescription = "ngModel">
+          <label
+            for="descriptionLabel"
+            [hidden]="genuineDescription.valid || !(genuineDescription.dirty || genuineDescription.touched)"
+            class="alert alert-danger col-12">*未输入简介</label>
         </div>
         <div class="form-group">
           <label for="imageUrlLabel">图片地址</label>
-          <textarea type="text" class="form-control" rows="5" id="imageUrlLabel" required [(ngModel)]="genuineToAdd.imageURL" name="imageURL" #imageURL = "ngModel"></textarea>
-          <label for="imageUrlLabel" [hidden]="imageURL.valid || !(imageURL.dirty || imageURL.touched)" class="alert alert-danger col-12">*未输入图片地址</label>
+          <textarea
+            type="text"
+            class="form-control"
+            rows="5"
+            id="imageUrlLabel"
+            required [(ngModel)]="genuineToAdd.imageURL"
+            name="imageURL"
+            #imageURL = "ngModel">
+          </textarea>
+          <label
+            for="imageUrlLabel"
+            [hidden]="imageURL.valid || !(imageURL.dirty || imageURL.touched)"
+            class="alert alert-danger col-12">
+            *未输入图片地址
+          </label>
         </div>
         <div class="form-group">
           <label for="urlLabel">文章地址</label>
-          <textarea type="text" class="form-control" rows="5" id="urlLabel" required [(ngModel)]="genuineToAdd.url" name="url" #url="ngModel"></textarea>
-          <label for="urlLabel" [hidden]="url.valid || !(url.dirty || url.touched)" class="alert alert-danger col-12">*未输入文章地址</label>
+          <textarea
+            type="text"
+            class="form-control"
+            rows="5"
+            id="urlLabel"
+            required
+            [(ngModel)]="genuineToAdd.url"
+            name="url"
+            #url="ngModel">
+          </textarea>
+          <label
+            for="urlLabel"
+            [hidden]="url.valid || !(url.dirty || url.touched)"
+            class="alert alert-danger col-12">
+            *未输入文章地址
+          </label>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!addGenuineForm.form.valid" data-toggle="modal" data-target="#informationDialog">Submit</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!addGenuineForm.form.valid"
+          data-toggle="modal"
+          data-target="#informationDialog">
+          Submit
+        </button>
 
 
         <div class="modal fade" id="informationDialog" tabindex="-1" role="dialog" aria-labelledby="informationDialogTitle" aria-hidden="true">
@@ -90,7 +211,13 @@
                 {{messageBody}}
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="succeeded ? (addGenuineForm.reset()) && (succeeded=false):false" >Close</button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                  (click)="succeeded ? (addGenuineForm.reset()) && (succeeded=false):false">
+                  Close
+                </button>
               </div>
             </div>
           </div>
