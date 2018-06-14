@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NewsFlash} from '../../entities/NewsFlash';
 import {DataService} from '../../services/data.service';
 
@@ -13,7 +13,9 @@ export class AddflashComponent implements OnInit {
   private messageTitle: string;
   private messageBody: string;
   succeeded: boolean;
-  constructor(private dataService: DataService) { }
+
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit() {
   }

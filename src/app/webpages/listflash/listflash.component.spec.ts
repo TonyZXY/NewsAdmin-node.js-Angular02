@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListflashComponent } from './listflash.component';
+import {ListflashComponent} from './listflash.component';
 
 describe('ListflashComponent', () => {
   let component: ListflashComponent;
@@ -8,9 +8,9 @@ describe('ListflashComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListflashComponent ]
+      declarations: [ListflashComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

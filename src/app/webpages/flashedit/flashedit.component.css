@@ -1,7 +1,8 @@
 
-.form-control{
+.form-control {
   height: 300px;
 }
+
 .ng-pristine:not(form) {
   border-left: 5px solid #a94442;
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Video} from '../../entities/Video';
 import {ActivatedRoute} from '@angular/router';
 import {DataService} from '../../services/data.service';
-import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-videoedit',
@@ -17,7 +17,9 @@ export class VideoeditComponent implements OnInit {
   private messageTitle: string;
   private messageBody: string;
   succeeded: boolean;
-  constructor(private route: ActivatedRoute, private serve: DataService, private modalService: NgbModal) { }
+
+  constructor(private route: ActivatedRoute, private serve: DataService, private modalService: NgbModal) {
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
@@ -27,6 +29,7 @@ export class VideoeditComponent implements OnInit {
       }
     );
   }
+
   onSubmit() {
     if (this.videoToEdit.title) {
       this.video.title = this.videoToEdit.title;
@@ -55,6 +58,7 @@ export class VideoeditComponent implements OnInit {
       this.messageBody = errorMessage;
     }
   }
+
   openDelete(content) {
     this.modalService.open(content, {centered: true});
   }

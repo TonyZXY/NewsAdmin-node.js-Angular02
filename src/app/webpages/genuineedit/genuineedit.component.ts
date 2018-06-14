@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Genuine} from '../../entities/Genuine';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DataService} from '../../services/data.service';
-import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-genuineedit',
@@ -17,16 +17,19 @@ export class GenuineeditComponent implements OnInit {
   private messageTitle: string;
   private messageBody: string;
   succeeded: boolean;
-  constructor(private route: ActivatedRoute, private router: Router, private serve: DataService, private modalService: NgbModal) { }
+
+  constructor(private route: ActivatedRoute, private router: Router, private serve: DataService, private modalService: NgbModal) {
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
       params => {
         this.selectedID = params.get('id');
-        this.serve.getGenuine(this.selectedID).subscribe( genu => this.genuine = genu);
+        this.serve.getGenuine(this.selectedID).subscribe(genu => this.genuine = genu);
       }
     );
   }
+
   onSubmit() {
     if (this.genuineToEdit.title) {
       this.genuine.title = this.genuineToEdit.title;
@@ -60,6 +63,7 @@ export class GenuineeditComponent implements OnInit {
   openDelete(content) {
     this.modalService.open(content, {centered: true});
   }
+
   onDelete(id) {
     console.log(id);
     this.serve.deleteGenuine(id);

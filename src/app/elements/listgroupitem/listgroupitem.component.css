@@ -1,13 +1,16 @@
-.align-items-center{
+.align-items-center {
   font-size: larger;
   margin-top: auto;
   margin-bottom: auto;
 }
-.timeText{
+
+.timeText {
   margin-right: 20px;
 }
-.btn.btn-primary{
+
+.btn.btn-primary {
 }
-.btn.btn-danger{
+
+.btn.btn-danger {
   margin-right: 10px;
 }

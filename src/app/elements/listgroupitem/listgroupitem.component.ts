@@ -7,7 +7,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class ListgroupitemComponent implements OnInit {
   @Input() time;
-  @Input() labelTitle ;
+  @Input() labelTitle;
   @Input() id;
   @Input() edit;
   @Input() delete;
@@ -20,7 +20,7 @@ export class ListgroupitemComponent implements OnInit {
 
   }
 
-  setTime(time: string){
+  setTime(time: string) {
     time = this.time.substring(0, 10) + ' ' + this.time.substring(11, 18);
     return time;
   }

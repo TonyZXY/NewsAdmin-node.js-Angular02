@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-videohome',
@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class VideohomeComponent implements OnInit {
   public string = 'video';
   public str = '视频';
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { VideohomeComponent } from './videohome.component';
+import {VideohomeComponent} from './videohome.component';
 
 describe('VideohomeComponent', () => {
   let component: VideohomeComponent;
@@ -8,9 +8,9 @@ describe('VideohomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VideohomeComponent ]
+      declarations: [VideohomeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

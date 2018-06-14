@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NewsFlash} from '../../entities/NewsFlash';
 import {ActivatedRoute} from '@angular/router';
 import {DataService} from '../../services/data.service';
-import { NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-flashedit',
@@ -18,13 +18,14 @@ export class FlasheditComponent implements OnInit {
   private messageBody: string;
   succeeded: boolean;
 
-  constructor(private route: ActivatedRoute, private serve: DataService, private modalService: NgbModal) { }
+  constructor(private route: ActivatedRoute, private serve: DataService, private modalService: NgbModal) {
+  }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
       params => {
         this.selectedID = params.get('id');
-        this.serve.getFlash(this.selectedID).subscribe( flash => this.flash = flash);
+        this.serve.getFlash(this.selectedID).subscribe(flash => this.flash = flash);
       }
     );
   }
@@ -42,6 +43,7 @@ export class FlasheditComponent implements OnInit {
       this.messageBody = errorMessage;
     }
   }
+
   openDelete(content) {
     this.modalService.open(content, {centered: true});
   }

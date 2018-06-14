@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Genuine} from '../../entities/Genuine';
 import {DataService} from '../../services/data.service';
 
@@ -14,7 +14,8 @@ export class AddgenuineComponent implements OnInit {
   private messageBody: string;
   succeeded: boolean;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit() {
   }

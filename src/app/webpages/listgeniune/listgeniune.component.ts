@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Genuine} from '../../entities/Genuine';
 import {DataService} from '../../services/data.service';
 
@@ -13,7 +13,8 @@ export class ListgeniuneComponent implements OnInit {
   public delete = '/genuine/delete/';
   genuines: Genuine[];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit() {
     this.dataService.getGenuineList()

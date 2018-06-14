@@ -1,5 +1,5 @@
 import {Component, OnInit, Output} from '@angular/core';
-import { DataService } from '../../services/data.service';
+import {DataService} from '../../services/data.service';
 
 
 @Component({
@@ -12,12 +12,15 @@ export class ListnewsComponent implements OnInit {
   public edit = '/news/edit/';
   public delete = '/news/delete/';
   newss;
-  constructor(public dataService: DataService) { }
+
+  constructor(public dataService: DataService) {
+  }
 
   getNews() {
     this.dataService.getNewsList()
       .subscribe(newss => this.newss = newss);
   }
+
   ngOnInit() {
     this.getNews();
   }

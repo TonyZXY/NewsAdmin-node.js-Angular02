@@ -7,7 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   @Input() public parentPath;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

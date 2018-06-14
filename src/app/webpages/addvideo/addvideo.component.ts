@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Video} from '../../entities/Video';
 import {DataService} from '../../services/data.service';
 
@@ -14,7 +14,8 @@ export class AddvideoComponent implements OnInit {
   private messageBody: string;
   succeeded: boolean;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit() {
   }

@@ -8,7 +8,9 @@ import {Component, Input, OnInit} from '@angular/core';
 export class HomeviewComponent implements OnInit {
   @Input() public parentPath;
   @Input() public str;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

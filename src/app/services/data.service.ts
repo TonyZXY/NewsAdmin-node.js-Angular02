@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 import {News} from '../entities/News';
 import {Video} from '../entities/Video';
 import {NewsFlash} from '../entities/NewsFlash';
@@ -11,7 +11,7 @@ import {throwError} from 'rxjs';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 @Injectable({
@@ -27,73 +27,88 @@ export class DataService {
     this.errormessage = '';
   }
 
-  getNewsList (): Observable<News[]>  {
+  getNewsList(): Observable<News[]> {
     return this.http.get<News[]>('http://10.10.6.111:3000/api/news').pipe();
   }
-  getNews (id): Observable<News> {
+
+  getNews(id): Observable<News> {
     return this.http.get<News>('http://10.10.6.111:3000/api/news/' + id);
   }
-  getVideosList (): Observable<Video[]>  {
+
+  getVideosList(): Observable<Video[]> {
     return this.http.get<Video[]>(this.urlHead + '/video').pipe();
   }
+
   getVideo(id): Observable<Video> {
     return this.http.get<Video>(this.urlHead + '/videos/' + id);
   }
-  getNewsflashList (): Observable<NewsFlash[]>  {
+
+  getNewsflashList(): Observable<NewsFlash[]> {
     return this.http.get<NewsFlash[]>(this.urlHead + '/flashlist').pipe();
   }
+
   getFlash(id): Observable<NewsFlash> {
     return this.http.get<NewsFlash>(this.urlHead + '/flashList/' + id);
   }
-  getGenuineList (): Observable<Genuine[]>  {
+
+  getGenuineList(): Observable<Genuine[]> {
     return this.http.get<Genuine[]>(this.urlHead + '/genuine').pipe();
   }
-  getGenuine (id): Observable<Genuine> {
+
+  getGenuine(id): Observable<Genuine> {
     return this.http.get<Genuine>(this.urlHead + '/genuine/' + id);
   }
-  addNews (news: News): string {
+
+  addNews(news: News): string {
     this.http.post<News>(this.urlHead + '/news', news, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;
   }
-  addVideo (video: Video): string {
+
+  addVideo(video: Video): string {
     this.http.post<Video>(this.urlHead + '/video', video, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;
   }
-  addNewsFlash (newsflash: NewsFlash): string {
+
+  addNewsFlash(newsflash: NewsFlash): string {
     this.http.post<NewsFlash>(this.urlHead + '/flashlist', newsflash, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;
   }
-  addGenuine (genuine: Genuine): string {
+
+  addGenuine(genuine: Genuine): string {
     this.http.post<Genuine>(this.urlHead + '/genuine', genuine, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;
   }
-  editNews (news: News): string {
-    this.http.put<News>(this.urlHead + '/news/' + news._id , news , httpOptions).pipe(
+
+  editNews(news: News): string {
+    this.http.put<News>(this.urlHead + '/news/' + news._id, news, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;
   }
-  editFlash (flash: NewsFlash): string {
+
+  editFlash(flash: NewsFlash): string {
     this.http.put<NewsFlash>(this.urlHead + '/flash/' + flash._id, flash, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;
   }
-  editVideo (video: Video): string {
+
+  editVideo(video: Video): string {
     this.http.put<Video>(this.urlHead + '/videos/' + video._id, video, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;
   }
-  editGenuine (genuine: Genuine): string {
+
+  editGenuine(genuine: Genuine): string {
     console.log('Dataservice: ' + genuine);
     this.http.put<Genuine>(this.urlHead + '/genuine/' + genuine._id, genuine, httpOptions).pipe(
       catchError(this.handleError)
@@ -107,18 +122,21 @@ export class DataService {
     ).subscribe();
     return this.errormessage;
   }
+
   deleteVideo(_id: string): string {
     this.http.delete(this.urlHead + '/videos/' + _id, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;
   }
+
   deleteNewsFlash(_id: string): string {
     this.http.delete(this.urlHead + '/flash/' + _id, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;
   }
+
   deleteGenuine(_id: string): string {
     this.http.delete(this.urlHead + '/genuine/' + _id).pipe(
       catchError(this.handleError)

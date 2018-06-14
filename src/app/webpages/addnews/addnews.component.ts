@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {News} from '../../entities/News';
 import {DataService} from '../../services/data.service';
 
@@ -14,8 +14,10 @@ export class AddnewsComponent implements OnInit {
   private messageTitle: string;
   private messageBody: string;
   succeeded: boolean;
+
   constructor(private dataService: DataService) {
   }
+
   ngOnInit() {
   }
 

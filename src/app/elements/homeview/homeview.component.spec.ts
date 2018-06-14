@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HomeviewComponent } from './homeview.component';
+import {HomeviewComponent} from './homeview.component';
 
 describe('HomeviewComponent', () => {
   let component: HomeviewComponent;
@@ -8,9 +8,9 @@ describe('HomeviewComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeviewComponent ]
+      declarations: [HomeviewComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

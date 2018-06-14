@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-flashhome',
@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class FlashhomeComponent implements OnInit {
   public string = 'flash';
   public str = '快讯';
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
