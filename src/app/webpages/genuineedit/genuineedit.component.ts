@@ -66,7 +66,9 @@ export class GenuineeditComponent implements OnInit {
 
   onDelete(id) {
     console.log(id);
-    this.serve.deleteGeniune(id);
+    this.serve.deleteGeniune(id).subscribe( next => {
+      this.router.navigateByUrl('/genuine/list');
+    });
   }
 
 }

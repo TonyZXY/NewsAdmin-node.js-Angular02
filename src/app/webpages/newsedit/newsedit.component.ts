@@ -68,7 +68,9 @@ export class NewseditComponent implements OnInit {
   }
 
   onDelete(id) {
-    this.serve.deleteNews(id);
+    this.serve.deleteNews(id).subscribe(next => {
+      this.router.navigateByUrl('/news/list');
+    });
   }
 
 }

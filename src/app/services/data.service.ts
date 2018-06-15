@@ -74,7 +74,7 @@ export class DataService {
   }
 
   addNewsFlash(newsflash: NewsFlash): string {
-    this.http.post<NewsFlash>(this.urlHead + '/flashlist', newsflash, httpOptions).pipe(
+    this.http.post<NewsFlash>(this.urlHead + '/flash', newsflash, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;

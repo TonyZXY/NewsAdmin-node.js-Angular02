@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NewsFlash} from '../../entities/NewsFlash';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DataService} from '../../services/data.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
@@ -18,7 +18,7 @@ export class FlasheditComponent implements OnInit {
   private messageBody: string;
   succeeded: boolean;
 
-  constructor(private route: ActivatedRoute, private serve: DataService, private modalService: NgbModal) {
+  constructor(private route: ActivatedRoute, private serve: DataService, private modalService: NgbModal, private router: Router) {
   }
 
   ngOnInit() {
@@ -49,7 +49,9 @@ export class FlasheditComponent implements OnInit {
   }
 
   onDelete(id) {
-    this.serve.deleteNewsFlash(id);
+    this.serve.deleteNewsFlash(id).subscribe(nest => {
+      this.router.navigateByUrl('/flash/list');
+    });
   }
 
 }
