@@ -13,16 +13,12 @@ export class ListvideoComponent implements OnInit {
   public edit = '/video/edit/';
   public delete = '/video/delete/';
   videos: Video[];
-<<<<<<< HEAD
 
-  constructor(private dataservice: DataService) {
-  }
-=======
   id: string;
   messageTitleToSend: string;
   messageBodyToSend: string;
   constructor(private dataservice: DataService,private modalService: NgbModal) { }
->>>>>>> Login_Page
+
 
   ngOnInit() {
     this.dataservice.getVideosList()

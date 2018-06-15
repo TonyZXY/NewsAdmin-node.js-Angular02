@@ -27,11 +27,7 @@ export class ListgroupitemComponent implements OnInit {
   }
 
   setTime(time: string) {
-<<<<<<< HEAD
-    time = this.time.substring(0, 10) + ' ' + this.time.substring(11, 18);
-=======
     time = this.time.substring(0, 10) + ' ' + this.time.substring(11, 19);
->>>>>>> Login_Page
     return time;
   }
 

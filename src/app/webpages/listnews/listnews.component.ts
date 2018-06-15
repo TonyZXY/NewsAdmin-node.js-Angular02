@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-import {Component, Input, OnInit, Output} from '@angular/core';
-import {DataService} from '../../services/data.service';
-=======
 import {Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {News} from '../../entities/News';
->>>>>>> Login_Page
+
 
 
 @Component({
@@ -18,19 +14,14 @@ export class ListnewsComponent implements OnInit {
   public string = 'news';
   public edit = '/news/edit/';
   public delete = '/news/delete/';
-<<<<<<< HEAD
-  newss;
 
-  constructor(public dataService: DataService) {
-  }
-=======
   newss: News[];
   id: string;
   messageTitleToSend: string;
   messageBodyToSend: string;
 
   constructor(public dataService: DataService, private modalService: NgbModal) {}
->>>>>>> Login_Page
+
 
   getNews() {
     this.dataService.getNewsList()
@@ -40,12 +31,7 @@ export class ListnewsComponent implements OnInit {
   ngOnInit() {
     this.getNews();
   }
-<<<<<<< HEAD
 
-  freshData() {
-    this.getNews();
-  }
-=======
   onNotifySureToDelete(id: string, content) {
     this.messageTitleToSend = '确认';
     this.messageBodyToSend = '你确认删除这一条新闻吗 ?';
@@ -69,5 +55,4 @@ export class ListnewsComponent implements OnInit {
     }
   }
 
->>>>>>> Login_Page
 }

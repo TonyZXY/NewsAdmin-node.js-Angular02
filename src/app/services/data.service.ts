@@ -86,8 +86,6 @@ export class DataService {
     ).subscribe();
     return this.errormessage;
   }
-
-<<<<<<< HEAD
   editNews(news: News): string {
     this.http.put<News>(this.urlHead + '/news/' + news._id, news, httpOptions).pipe(
       catchError(this.handleError)

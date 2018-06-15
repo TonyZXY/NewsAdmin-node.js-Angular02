@@ -66,7 +66,7 @@ export class GenuineeditComponent implements OnInit {
 
   onDelete(id) {
     console.log(id);
-    this.serve.deleteGenuine(id);
+    this.serve.deleteGeniune(id);
   }
 
 }

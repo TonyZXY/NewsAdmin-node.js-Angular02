@@ -13,16 +13,11 @@ export class ListgeniuneComponent implements OnInit {
   public edit = '/genuine/edit/';
   public delete = '/genuine/delete/';
   genuines: Genuine[];
-<<<<<<< HEAD
 
-  constructor(private dataService: DataService) {
-  }
-=======
   id: string;
   messageTitleToSend: string;
   messageBodyToSend: string;
   constructor(private dataService: DataService, private modalService: NgbModal) { }
->>>>>>> Login_Page
 
   ngOnInit() {
     this.dataService.getGenuineList()
