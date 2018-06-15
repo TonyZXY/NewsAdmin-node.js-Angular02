@@ -87,6 +87,7 @@ export class DataService {
     return this.errormessage;
   }
 
+<<<<<<< HEAD
   editNews(news: News): string {
     this.http.put<News>(this.urlHead + '/news/' + news._id, news, httpOptions).pipe(
       catchError(this.handleError)
@@ -116,32 +117,26 @@ export class DataService {
     return this.errormessage;
   }
 
-  deleteNews(_id: string): string {
-    this.http.delete(this.urlHead + '/news/' + _id, httpOptions).pipe(
-      catchError(this.handleError)
-    ).subscribe();
-    return this.errormessage;
-  }
 
-  deleteVideo(_id: string): string {
-    this.http.delete(this.urlHead + '/videos/' + _id, httpOptions).pipe(
+  deleteNews(_id: string): Observable<{}> {
+    return this.http.delete(this.urlHead + '/news/' + _id, httpOptions).pipe(
       catchError(this.handleError)
-    ).subscribe();
-    return this.errormessage;
+    );
   }
-
-  deleteNewsFlash(_id: string): string {
-    this.http.delete(this.urlHead + '/flash/' + _id, httpOptions).pipe(
+  deleteVideo(_id: string): Observable<{}> {
+    return this.http.delete(this.urlHead + '/video/' + _id, httpOptions).pipe(
       catchError(this.handleError)
-    ).subscribe();
-    return this.errormessage;
+    );
   }
-
-  deleteGenuine(_id: string): string {
-    this.http.delete(this.urlHead + '/genuine/' + _id).pipe(
+  deleteNewsFlash(_id: string): Observable<{}> {
+    return this.http.delete(this.urlHead + '/flash/' + _id, httpOptions).pipe(
       catchError(this.handleError)
-    ).subscribe();
-    return this.errormessage;
+    );
+  }
+  deleteGeniune(_id: string): Observable<{}> {
+    return this.http.delete(this.urlHead + '/genuine/' + _id, httpOptions).pipe(
+      catchError(this.handleError)
+    );
   }
 
   searchNews(from, to): Observable<{}> {

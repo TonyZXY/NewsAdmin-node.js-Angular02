@@ -1,9 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-
+import {Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {DataService} from '../../services/data.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-listgroupitem',
   templateUrl: './listgroupitem.component.html',
-  styleUrls: ['./listgroupitem.component.css']
+  styleUrls: ['./listgroupitem.component.css'],
 })
 export class ListgroupitemComponent implements OnInit {
   @Input() time;
@@ -11,8 +12,13 @@ export class ListgroupitemComponent implements OnInit {
   @Input() id;
   @Input() edit;
   @Input() delete;
+  @Output() idToDelete = new EventEmitter();
 
-  constructor() {
+  @Input() endDelete: boolean;
+  @Input() messageTitleToSend: string;
+  @Input() messageBodyToSend: string;
+
+  constructor(private dataService: DataService, private modalService: NgbModal) {
   }
 
   ngOnInit() {
@@ -21,7 +27,18 @@ export class ListgroupitemComponent implements OnInit {
   }
 
   setTime(time: string) {
+<<<<<<< HEAD
     time = this.time.substring(0, 10) + ' ' + this.time.substring(11, 18);
+=======
+    time = this.time.substring(0, 10) + ' ' + this.time.substring(11, 19);
+>>>>>>> Login_Page
     return time;
+  }
+
+  openVerticallyCentered(content) {
+    this.modalService.open(content, { centered: true });
+  }
+  onClickSureToDelete() {
+    this.idToDelete.emit(this.id);
   }
 }
