@@ -144,6 +144,30 @@ export class DataService {
     return this.errormessage;
   }
 
+  searchNews(from, to): Observable<{}> {
+    return this.http.get(this.urlHead + '/searchNewsTime?' + 'from=' + from + '&to=' + to).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchGenuine(from, to): Observable<{}> {
+    return this.http.get(this.urlHead + '/searchGenuineTime?from=' + from + '&to=' + to).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchVideo(from, to): Observable<{}> {
+    return this.http.get(this.urlHead + '/searchVideoTime?from=' + from + '&to=' + to).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchFlash(from, to): Observable<{}> {
+    return this.http.get(this.urlHead + '/searchFlashTime?from=' + from + '&to=' + to).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   // deleteGenuine(_id: string): Observable<{}> {
   //    return this.http.delete(this.urlHead + '/genuine/' + _id, httpOptions).pipe(
   //     catchError(this.handleError)

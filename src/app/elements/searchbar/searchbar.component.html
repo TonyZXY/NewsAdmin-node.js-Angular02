@@ -2,15 +2,17 @@
   <div class="row">
     <div class="col-4">
       <label>Start: YYYY,MM,DD</label>
-      <input type="text" class="form-control" placeholder="Start: YYYY,MM,DD">
+      <input [(ngModel)]="dateFrom" name="from" #from="ngModel" type="text" class="form-control" placeholder="Start: YYYY,MM,DD">
     </div>
     <div class="col-4">
       <label>End: YYYY,MM,DD</label>
-      <input type="text" class="form-control" placeholder="End: YYYY,MM,DD">
+      <input [(ngModel)]="dateTo" name="to" #to="ngModel" type="text" class="form-control" placeholder="End: YYYY,MM,DD">
     </div>
     <div class="col-2">
       <br>
-      <input type="submit" class="btn btn-primary" value="Search">
+      <button (click)="onClick()" class="btn btn-primary">Search</button>
+      <br>
+      {{string}}
     </div>
   </div>
 </form>

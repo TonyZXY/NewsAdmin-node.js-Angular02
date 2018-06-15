@@ -1,4 +1,4 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {DataService} from '../../services/data.service';
 
 
@@ -22,6 +22,10 @@ export class ListnewsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getNews();
+  }
+
+  freshData() {
     this.getNews();
   }
 }

@@ -28,6 +28,10 @@ import {WelcomeComponent} from './webpages/welcome/welcome.component';
 import {HomeviewComponent} from './elements/homeview/homeview.component';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NewssearchComponent } from './webpages/newssearch/newssearch.component';
+import { VideosearchComponent } from './webpages/videosearch/videosearch.component';
+import { FlashsearchComponent } from './webpages/flashsearch/flashsearch.component';
+import { GenuinesearchComponent } from './webpages/genuinesearch/genuinesearch.component';
 
 const appRoutes: Routes = [
   {path: 'news/edit/:id', component: NewseditComponent},
@@ -39,13 +43,13 @@ const appRoutes: Routes = [
   {path: 'genuine/list', component: ListgeniuneComponent, runGuardsAndResolvers: 'always'},
   {path: 'news/list', component: ListnewsComponent, runGuardsAndResolvers: 'always'},
   {path: 'news/add', component: AddnewsComponent},
-  {path: 'news/search', component: ListnewsComponent},
+  {path: 'news/search', component: NewssearchComponent},
   {path: 'video/add', component: AddvideoComponent},
-  {path: 'video/search', component: ListvideoComponent},
+  {path: 'video/search', component: VideosearchComponent},
   {path: 'flash/add', component: AddflashComponent},
-  {path: 'flash/search', component: ListflashComponent},
+  {path: 'flash/search', component: FlashsearchComponent},
   {path: 'genuine/add', component: AddgenuineComponent},
-  {path: 'genuine/search', component: ListgeniuneComponent},
+  {path: 'genuine/search', component: GenuinesearchComponent},
   {path: '', component: WelcomeComponent},
   {path: 'news', component: NewshomeComponent},
   {path: 'flash', component: FlashhomeComponent},
@@ -77,7 +81,11 @@ const appRoutes: Routes = [
     FlashhomeComponent,
     WelcomeComponent,
     HomeviewComponent,
-    AddgenuineComponent
+    AddgenuineComponent,
+    NewssearchComponent,
+    VideosearchComponent,
+    FlashsearchComponent,
+    GenuinesearchComponent
   ],
   imports: [
     NgbModule.forRoot(),

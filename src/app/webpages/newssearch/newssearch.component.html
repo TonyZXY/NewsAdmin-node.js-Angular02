@@ -1,18 +1,19 @@
-<app-menubar></app-menubar>
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-2">
       <app-toolbar [parentPath]="string"></app-toolbar>
+      <!--[parentData]="path"-->
     </div>
     <div class="col-sm-10">
+      <app-searchbar [string]="string" (messageEvent)="receiveMessage($event)"></app-searchbar>
       <br>
       <br>
       <ul class="list-group">
         <app-listgroupitem
-          *ngFor="let g of genuines"
-          [time]="g.publishedTime"
-          [labelTitle]="g.title"
-          [id]="g._id"
+          *ngFor="let n of newss"
+          [time]="n.publishedTime"
+          [labelTitle]="n.title"
+          [id]="n._id"
           [edit]="edit"
           [delete]="delete"
         ></app-listgroupitem>

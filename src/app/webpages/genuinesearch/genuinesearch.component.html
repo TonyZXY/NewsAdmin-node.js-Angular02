@@ -5,6 +5,7 @@
       <app-toolbar [parentPath]="string"></app-toolbar>
     </div>
     <div class="col-sm-10">
+      <app-searchbar [string]="string" (messageEvent)="receiveMessage($event)"></app-searchbar>
       <br>
       <br>
       <ul class="list-group">
