@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Video} from '../../entities/Video';
 import {DataService} from '../../services/data.service';
 

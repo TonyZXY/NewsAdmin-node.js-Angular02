@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import {Video} from '../../entities/Video';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-listvideo',
@@ -10,13 +11,38 @@ import {Video} from '../../entities/Video';
 export class ListvideoComponent implements OnInit {
   public string = 'video';
   public edit = '/video/edit/';
-  public delete = '/news/delete/';
+  public delete = '/video/delete/';
   videos: Video[];
-  constructor(private dataservice: DataService) { }
+  id: string;
+  messageTitleToSend: string;
+  messageBodyToSend: string;
+  constructor(private dataservice: DataService,private modalService: NgbModal) { }
 
   ngOnInit() {
     this.dataservice.getVideosList()
       .subscribe(videos => this.videos = videos);
   }
 
+  onNotifySureToDelete(id: string, content) {
+    this.messageTitleToSend = '确认';
+    this.messageBodyToSend = '你确认删除这一条视频吗 ?';
+    this.id = id;
+    this.modalService.open(content, {centered: true});
+  }
+  onDelete() {
+    this.dataservice.deleteVideo(this.id).subscribe(next => {
+      this.dataservice.getVideosList()
+        .subscribe(videos => { this.videos = videos;
+          console.log(this.videos);
+        });
+    });
+    const err = this.dataservice.errormessage;
+    if (err === '') {
+      this.messageTitleToSend = '成功删除';
+      this.messageBodyToSend = '已成功删除这一条视频';
+    } else if (err !== '') {
+      this.messageTitleToSend = '错误';
+      this.messageBodyToSend = err;
+    }
+  }
 }

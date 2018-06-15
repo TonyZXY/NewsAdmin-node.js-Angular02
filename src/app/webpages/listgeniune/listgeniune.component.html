@@ -16,8 +16,24 @@
           [id]="g._id"
           [edit]="edit"
           [delete]="delete"
+          (idToDelete)="onNotifySureToDelete($event, content2)"
         ></app-listgroupitem>
       </ul>
     </div>
   </div>
 </div>
+<ng-template #content2 let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{messageTitleToSend}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>{{messageBodyToSend}}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="d()">关闭</button>
+    <button type="button" class="btn btn-danger" (click)="onDelete()" [hidden]="endDelete" >确认</button>
+  </div>
+</ng-template>
