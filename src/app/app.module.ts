@@ -32,32 +32,35 @@ import { NewssearchComponent } from './webpages/newssearch/newssearch.component'
 import { VideosearchComponent } from './webpages/videosearch/videosearch.component';
 import { FlashsearchComponent } from './webpages/flashsearch/flashsearch.component';
 import { GenuinesearchComponent } from './webpages/genuinesearch/genuinesearch.component';
-
+import { AuthGuard } from './services/auth.guard';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { LoginComponent } from './webpages/login/login.component';
+import {AuthService} from './services/auth.service';
 
 
 const appRoutes: Routes = [
-  {path: 'news/edit/:id', component: NewseditComponent},
-  {path: 'genuine/edit/:id', component: GenuineeditComponent},
-  {path: 'video/edit/:id', component: VideoeditComponent},
-  {path: 'flash/edit/:id', component: FlasheditComponent},
-  {path: 'flash/list', component: ListflashComponent, runGuardsAndResolvers: 'always'},
-  {path: 'video/list', component: ListvideoComponent, runGuardsAndResolvers: 'always'},
-  {path: 'genuine/list', component: ListgeniuneComponent, runGuardsAndResolvers: 'always'},
-  {path: 'news/list', component: ListnewsComponent, runGuardsAndResolvers: 'always'},
-  {path: 'news/add', component: AddnewsComponent},
-  {path: 'news/search', component: NewssearchComponent},
-  {path: 'video/add', component: AddvideoComponent},
-  {path: 'video/search', component: VideosearchComponent},
-  {path: 'flash/add', component: AddflashComponent},
-  {path: 'flash/search', component: FlashsearchComponent},
-  {path: 'genuine/add', component: AddgenuineComponent},
-  {path: 'genuine/search', component: GenuinesearchComponent},
-  {path: '', component: WelcomeComponent},
-  {path: 'news', component: NewshomeComponent},
-  {path: 'flash', component: FlashhomeComponent},
-  {path: 'video', component: VideohomeComponent},
-  {path: 'genuine', component: GenuinehomeComponent}
+  {path: 'news/edit/:id', component: NewseditComponent, canActivate: [AuthGuard]},
+  {path: 'genuine/edit/:id', component: GenuineeditComponent, canActivate: [AuthGuard]},
+  {path: 'video/edit/:id', component: VideoeditComponent, canActivate: [AuthGuard]},
+  {path: 'flash/edit/:id', component: FlasheditComponent, canActivate: [AuthGuard]},
+  {path: 'flash/list', component: ListflashComponent, canActivate: [AuthGuard]},
+  {path: 'video/list', component: ListvideoComponent, canActivate: [AuthGuard]},
+  {path: 'genuine/list', component: ListgeniuneComponent, canActivate: [AuthGuard]},
+  {path: 'news/list', component: ListnewsComponent, canActivate: [AuthGuard]},
+  {path: 'news/add', component: AddnewsComponent, canActivate: [AuthGuard]},
+  {path: 'news/search', component: NewssearchComponent, canActivate: [AuthGuard]},
+  {path: 'video/add', component: AddvideoComponent, canActivate: [AuthGuard]},
+  {path: 'video/search', component: VideosearchComponent, canActivate: [AuthGuard]},
+  {path: 'flash/add', component: AddflashComponent, canActivate: [AuthGuard]},
+  {path: 'flash/search', component: FlashsearchComponent, canActivate: [AuthGuard]},
+  {path: 'genuine/add', component: AddgenuineComponent, canActivate: [AuthGuard]},
+  {path: 'genuine/search', component: GenuinesearchComponent, canActivate: [AuthGuard]},
+  {path: '', component: LoginComponent},
+  {path: 'home', component: WelcomeComponent, canActivate: [AuthGuard]},
+  {path: 'news', component: NewshomeComponent, canActivate: [AuthGuard] },
+  {path: 'flash', component: FlashhomeComponent, canActivate: [AuthGuard]},
+  {path: 'video', component: VideohomeComponent, canActivate: [AuthGuard]},
+  {path: 'genuine', component: GenuinehomeComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -88,7 +91,8 @@ const appRoutes: Routes = [
     NewssearchComponent,
     VideosearchComponent,
     FlashsearchComponent,
-    GenuinesearchComponent
+    GenuinesearchComponent,
+    LoginComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -96,9 +100,9 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes, {onSameUrlNavigation: 'reload'})
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [DataService],
+  providers: [DataService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

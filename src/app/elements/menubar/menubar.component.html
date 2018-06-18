@@ -7,7 +7,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav px-2 mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/">Home</a>
+        <a class="nav-link" routerLink="/home">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/news">新 闻</a>
@@ -24,7 +24,8 @@
     </ul>
     <ul class="navbar-nav px-2">
       <li class="nav-item">
-        <a class="nav-link" href="#">登入/登出</a>
+        <button class="btn" *ngIf="!auth.loggedIn()">登入</button>
+        <button class="btn" *ngIf="auth.loggedIn()" (click)="onClick()">登出</button>
       </li>
     </ul>
   </div>

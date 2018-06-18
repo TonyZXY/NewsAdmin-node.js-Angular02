@@ -9,8 +9,10 @@ import {DataService} from '../../services/data.service';
 })
 export class SearchbarComponent implements OnInit {
   @Input() string;
-  public dateFrom;
-  public dateTo;
+  public dateFromFormat;
+  public dateToFormat;
+  public dateFrom: string;
+  public dateTo: string;
   @Output() messageEvent = new EventEmitter();
 
   constructor(private serve: DataService) {
@@ -21,6 +23,8 @@ export class SearchbarComponent implements OnInit {
   }
 
   onClick() {
+    this.dateFrom = this.dateFromFormat.year + ',' + this.dateFromFormat.month + ',' + this.dateFromFormat.day;
+    this.dateTo = this.dateToFormat.year + ',' + this.dateToFormat.month + ',' + this.dateToFormat.day;
     if (this.string === 'news') {
       this.serve.searchNews(this.dateFrom, this.dateTo).subscribe(
         news => {
