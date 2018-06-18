@@ -1,12 +1,30 @@
 <form>
   <div class="row">
     <div class="col-4">
-      <label>Start: YYYY,MM,DD</label>
-      <input [(ngModel)]="dateFrom" name="from" #from="ngModel" type="text" class="form-control" placeholder="Start: YYYY,MM,DD">
+      <label>Start: YYYY-MM-DD</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="Start: yyyy-mm-dd"
+               name="dateFrom" [(ngModel)]="dateFromFormat" ngbDatepicker #df="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="df.toggle()" type="button">
+            <img src="https://ng-bootstrap.github.io/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+          </button>
+        </div>
+      </div>
+      <!--<input [(ngModel)]="dateFrom" name="from" #from="ngModel" type="text" class="form-control" placeholder="Start: YYYY,MM,DD">-->
     </div>
     <div class="col-4">
-      <label>End: YYYY,MM,DD</label>
-      <input [(ngModel)]="dateTo" name="to" #to="ngModel" type="text" class="form-control" placeholder="End: YYYY,MM,DD">
+      <label>End: YYYY-MM-DD</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="End: yyyy-mm-dd"
+               name="dateTo" [(ngModel)]="dateToFormat" ngbDatepicker #dt="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="dt.toggle()" type="button">
+            <img src="https://ng-bootstrap.github.io/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+          </button>
+        </div>
+      </div>
+      <!--<input [(ngModel)]="dateTo" name="to" #to="ngModel" type="text" class="form-control" placeholder="End: YYYY,MM,DD">-->
     </div>
     <div class="col-2">
       <br>

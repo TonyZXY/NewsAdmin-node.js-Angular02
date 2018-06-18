@@ -10,6 +10,7 @@ import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 
 
+
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
@@ -21,6 +22,7 @@ const httpOptions = {
 export class DataService {
   private urlHead = 'http://10.10.6.111:3000/api';
   errormessage = '';
+
 
   constructor(private http: HttpClient) {
     console.log('Data service in use');
@@ -161,6 +163,7 @@ export class DataService {
     );
   }
 
+
   // deleteGenuine(_id: string): Observable<{}> {
   //    return this.http.delete(this.urlHead + '/genuine/' + _id, httpOptions).pipe(
   //     catchError(this.handleError)
@@ -184,3 +187,5 @@ export class DataService {
       'Something bad happened; please try again later.');
   }
 }
+
+
