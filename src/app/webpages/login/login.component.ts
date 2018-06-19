@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   userName = '';
   passWord = '';
   result = new UserLogin();
-  constructor(private auth: AuthService, private router: Router, private modalService: NgbModal) { }
+  constructor(public auth: AuthService, private router: Router, private modalService: NgbModal) { }
 
   ngOnInit() {
   }
