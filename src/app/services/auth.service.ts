@@ -44,11 +44,13 @@ export class AuthService {
   }
 
   loggedIn() {
-    return !!localStorage.getItem('loginstatus');
+    // return !!localStorage.getItem('loginstatus');
+    return !! sessionStorage.getItem('loginstatus');
   }
 
   getToken() {
-    return localStorage.getItem('token');
+    // return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
   }
 
 

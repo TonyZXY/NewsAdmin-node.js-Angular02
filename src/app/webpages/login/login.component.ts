@@ -29,8 +29,10 @@ export class LoginComponent implements OnInit {
         console.log(this.result);
         if (result.login) {
           this.auth.loginstatus = true;
-          localStorage.setItem('loginstatus', 'success');
-          localStorage.setItem('token', result.username + ' ' + result.token);
+          sessionStorage.setItem('loginstatus', 'success');
+          sessionStorage.setItem('token', result.username + ' ' + result.token);
+          // localStorage.setItem('loginstatus', 'success');
+          // localStorage.setItem('token', result.username + ' ' + result.token);
           this.router.navigate(['home']);
         } else {
           this.modalService.open(content, {centered: true});
