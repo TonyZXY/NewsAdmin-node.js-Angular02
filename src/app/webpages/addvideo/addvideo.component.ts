@@ -11,8 +11,8 @@ import {DataService} from '../../services/data.service';
 export class AddvideoComponent implements OnInit {
   public string = 'video';
   videoToAdd = new Video;
-  private messageTitle: string;
-  private messageBody: string;
+  messageTitle: string;
+  messageBody: string;
   succeeded: boolean;
 
   constructor(private dataService: DataService) {

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Video} from '../../entities/Video';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DataService} from '../../services/data.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-videoedit',
@@ -14,8 +14,8 @@ export class VideoeditComponent implements OnInit {
   public selectedID;
   public video: Video;
   public videoToEdit = new Video;
-  private messageTitle: string;
-  private messageBody: string;
+  messageTitle: string;
+  messageBody: string;
   succeeded: boolean;
 
   constructor(private route: ActivatedRoute, private serve: DataService, private modalService: NgbModal, private router: Router) {

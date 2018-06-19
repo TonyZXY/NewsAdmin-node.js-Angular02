@@ -2,7 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Genuine} from '../../entities/Genuine';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DataService} from '../../services/data.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-genuineedit',
@@ -14,8 +14,8 @@ export class GenuineeditComponent implements OnInit {
   public selectedID;
   public genuine: Genuine;
   public genuineToEdit = new Genuine;
-  private messageTitle: string;
-  private messageBody: string;
+  messageTitle: string;
+  messageBody: string;
   succeeded: boolean;
 
   constructor(private route: ActivatedRoute, private router: Router, private serve: DataService, private modalService: NgbModal) {

@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {DataService} from '../../services/data.service';
 import {News} from '../../entities/News';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-newsedit',
@@ -14,8 +14,8 @@ export class NewseditComponent implements OnInit {
   public selectedID;
   public news: News;
   public newsToEdit = new News;
-  private messageTitle: string;
-  private messageBody: string;
+  messageTitle: string;
+  messageBody: string;
   succeeded: boolean;
 
   constructor(private route: ActivatedRoute, private router: Router, private serve: DataService, private modalService: NgbModal) {

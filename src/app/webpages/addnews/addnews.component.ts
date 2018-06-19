@@ -11,8 +11,8 @@ export class AddnewsComponent implements OnInit {
   public string = 'news';
 
   newsToAdd = new News;
-  private messageTitle: string;
-  private messageBody: string;
+  messageTitle: string;
+  messageBody: string;
   succeeded: boolean;
 
   constructor(private dataService: DataService) {

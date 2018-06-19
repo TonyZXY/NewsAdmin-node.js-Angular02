@@ -10,8 +10,8 @@ import {DataService} from '../../services/data.service';
 export class AddgenuineComponent implements OnInit {
   public string = 'genuine';
   genuineToAdd = new Genuine;
-  private messageTitle: string;
-  private messageBody: string;
+  messageTitle: string;
+  messageBody: string;
   succeeded: boolean;
 
   constructor(private dataService: DataService) {
