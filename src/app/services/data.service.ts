@@ -30,7 +30,7 @@ export class DataService {
   }
 
   getNewsList(): Observable<News[]> {
-    return this.http.get<News[]>('http://10.10.6.111:3000/api/news').pipe();
+    return this.http.get<News[]>('http://10.10.6.218:3000/api/news').pipe();
   }
 
   getNews(id): Observable<News> {

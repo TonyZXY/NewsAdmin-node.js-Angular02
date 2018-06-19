@@ -17,6 +17,7 @@ export class ListvideoComponent implements OnInit {
   id: string;
   messageTitleToSend: string;
   messageBodyToSend: string;
+  endDelete: boolean;
   constructor(private dataservice: DataService,private modalService: NgbModal) { }
 
 
@@ -26,6 +27,7 @@ export class ListvideoComponent implements OnInit {
   }
 
   onNotifySureToDelete(id: string, content) {
+    this.endDelete = false;
     this.messageTitleToSend = '确认';
     this.messageBodyToSend = '你确认删除这一条视频吗 ?';
     this.id = id;
@@ -33,6 +35,7 @@ export class ListvideoComponent implements OnInit {
   }
   onDelete() {
     this.dataservice.deleteVideo(this.id).subscribe(next => {
+      this.endDelete = true;
       this.dataservice.getVideosList()
         .subscribe(videos => { this.videos = videos;
           console.log(this.videos);

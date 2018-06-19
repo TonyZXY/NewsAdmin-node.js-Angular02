@@ -19,6 +19,7 @@ export class MenubarComponent implements OnInit {
   }
 
   onClick() {
+    localStorage.removeItem('loginstatus');
     localStorage.removeItem('token');
     this.router.navigate(['']);
   }

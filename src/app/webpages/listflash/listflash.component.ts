@@ -16,6 +16,7 @@ export class ListflashComponent implements OnInit {
   id: string;
   messageTitleToSend: string;
   messageBodyToSend: string;
+  endDelete: boolean;
   constructor(private dataService: DataService, private modalService: NgbModal) {
   }
 
@@ -25,6 +26,7 @@ export class ListflashComponent implements OnInit {
   }
 
   onNotifySureToDelete(id: string, content) {
+    this.endDelete = false;
     this.messageTitleToSend = '确认';
     this.messageBodyToSend = '你确认删除这一条快讯吗 ?';
     this.id = id;
@@ -32,6 +34,7 @@ export class ListflashComponent implements OnInit {
   }
   onDelete() {
     this.dataService.deleteNewsFlash(this.id).subscribe(next => {
+      this.endDelete = true;
       this.dataService.getNewsflashList()
         .subscribe(newsFlashes => { this.newsFlashes = newsFlashes;
           console.log(this.newsFlashes);

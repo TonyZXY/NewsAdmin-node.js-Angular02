@@ -24,11 +24,13 @@ export class LoginComponent implements OnInit {
     console.log(this.passWord);
     this.auth.authLogin(this.userName, this.passWord).subscribe(
       result => {
+
         this.result = result;
+        console.log(this.result);
         if (result.login) {
-          console.log(this.auth.isUserLoggedIn);
           this.auth.loginstatus = true;
-          localStorage.setItem('token', 'success');
+          localStorage.setItem('loginstatus', 'success');
+          localStorage.setItem('token', result.username + ' ' + result.token);
           this.router.navigate(['home']);
         } else {
           this.modalService.open(content, {centered: true});

@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {DataService} from './services/data.service';
 import {AppComponent} from './app.component';
 import {MenubarComponent} from './elements/menubar/menubar.component';
@@ -36,6 +36,7 @@ import { AuthGuard } from './services/auth.guard';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoginComponent } from './webpages/login/login.component';
 import {AuthService} from './services/auth.service';
+import {TokenIntercepterService} from './services/token-intercepter.service';
 
 
 const appRoutes: Routes = [
@@ -102,7 +103,12 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [DataService, AuthGuard, AuthService],
+  providers: [DataService, AuthGuard, AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenIntercepterService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

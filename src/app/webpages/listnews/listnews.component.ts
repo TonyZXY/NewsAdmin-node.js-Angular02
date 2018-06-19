@@ -19,6 +19,7 @@ export class ListnewsComponent implements OnInit {
   id: string;
   messageTitleToSend: string;
   messageBodyToSend: string;
+  endDelete: boolean;
 
   constructor(public dataService: DataService, private modalService: NgbModal) {}
 
@@ -33,6 +34,7 @@ export class ListnewsComponent implements OnInit {
   }
 
   onNotifySureToDelete(id: string, content) {
+    this.endDelete = false;
     this.messageTitleToSend = '确认';
     this.messageBodyToSend = '你确认删除这一条新闻吗 ?';
     this.id = id;
@@ -40,6 +42,7 @@ export class ListnewsComponent implements OnInit {
   }
   onDelete() {
     this.dataService.deleteNews(this.id).subscribe(next => {
+      this.endDelete = true;
       this.dataService.getNewsList()
         .subscribe(newss => { this.newss = newss;
           console.log(this.newss);

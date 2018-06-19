@@ -17,6 +17,7 @@ export class ListgeniuneComponent implements OnInit {
   id: string;
   messageTitleToSend: string;
   messageBodyToSend: string;
+  endDelete: boolean;
   constructor(private dataService: DataService, private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -25,6 +26,7 @@ export class ListgeniuneComponent implements OnInit {
   }
 
   onNotifySureToDelete(id: string, content) {
+    this.endDelete = false;
     this.messageTitleToSend = '确认';
     this.messageBodyToSend = '你确认删除这一条原创新闻吗 ?';
     this.id = id;
@@ -32,6 +34,7 @@ export class ListgeniuneComponent implements OnInit {
   }
   onDelete() {
     this.dataService.deleteGeniune(this.id).subscribe(next => {
+      this.endDelete = true;
       this.dataService.getGenuineList()
         .subscribe(genuines => { this.genuines = genuines;
           console.log(this.genuines);
