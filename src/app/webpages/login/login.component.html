@@ -1,6 +1,6 @@
 <div class="container-fluid" >
   <label style="padding-top: 100px; font-size: 64px;">Welcome to Admin system</label>
-  <form class="form-signin" #loginForm="ngForm">
+  <form class="form-signin" #loginForm="ngForm" *ngIf="!auth.loggedIn()">
     <h1 class="h3 mb-3 font-weight-normal" style="padding-bottom: 20px">Please sign in</h1>
     <input
       type="text"
@@ -39,6 +39,11 @@
       Sign in
     </button>
   </form>
+  <div *ngIf="auth.loggedIn()">
+      <h2>
+        Alreadly Logged In
+      </h2>
+  </div>
 </div>
 
 <ng-template #content2 let-c="close" let-d="dismiss">
