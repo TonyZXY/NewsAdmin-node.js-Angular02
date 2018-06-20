@@ -37,6 +37,8 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoginComponent } from './webpages/login/login.component';
 import {AuthService} from './services/auth.service';
 import {TokenIntercepterService} from './services/token-intercepter.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
 
 
 const appRoutes: Routes = [
@@ -101,13 +103,16 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes,{useHash:true})
   ],
   providers: [DataService, AuthGuard, AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenIntercepterService,
       multi: true
+    },{
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
     }],
   bootstrap: [AppComponent]
 })
