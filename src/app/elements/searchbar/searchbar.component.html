@@ -2,13 +2,13 @@
   <pre></pre>
   <div class="btn-group btn-group-toggle" ngbRadioGroup>
     <label ngbButtonLabel class="btn-primary">
-      <input ngbButton type="radio" value="bytime" id="searchByTime" [(ngModel)]="options" name="options"> 按时间
+      <input ngbButton type="radio" value="bytime" id="searchByTime" [(ngModel)]="options" name="options" (click)="sendMessage()" > 按时间
     </label>
     <label ngbButtonLabel class="btn-primary">
-      <input ngbButton type="radio" value="bykey" id="searchByKey" [(ngModel)]="options" name="options"> 按关键词
+      <input ngbButton type="radio" value="bykey" id="searchByKey" [(ngModel)]="options" name="options" (click)="sendMessage()" > 按关键词
     </label>
     <label ngbButtonLabel class="btn-primary">
-      <input ngbButton type="radio" value="bytag" id="searchByTag" [(ngModel)]="options" name="options"> 按标签
+      <input ngbButton type="radio" value="bytag" id="searchByTag" [(ngModel)]="options" name="options" (click)="sendMessage()" > 按标签
     </label>
   </div>
   <hr>
@@ -59,19 +59,37 @@
   </div>
   <div class="row" *ngIf="options ==='bytag'">
     <div class="col-2">
-      <button type="button" class="btn btn-primary">{{tag1}}</button>
+      <button type="button" class="btn btn-primary" (click)="onClickByTag1()"
+      [ngStyle]="{'background-color':tagBackColor[0],'color':tagFontColor[0]}">
+        {{tag1}}
+        <span aria-hidden="true" *ngIf="tagClicktimes[0]%2 !==0">&times;</span>
+      </button>
     </div>
     <div class="col-2">
-      <button type="button" class="btn btn-success">{{tag2}}</button>
+      <button type="button" class="btn btn-success" (click)="onClickByTag2()"
+              [ngStyle]="{'background-color':tagBackColor[1],'color':tagFontColor[1]}">{{tag2}}
+        <span aria-hidden="true" *ngIf="tagClicktimes[1]%2 !==0">&times;</span></button>
     </div>
     <div class="col-2">
-      <button type="button" class="btn btn-danger">{{tag3}}</button>
+      <button type="button" class="btn btn-danger"
+              *ngIf="string !== 'news'"
+              (click)="onClickByTag3()"
+              [ngStyle]="{'background-color':tagBackColor[2],'color':tagFontColor[2]}">{{tag3}}
+        <span aria-hidden="true" *ngIf="tagClicktimes[2]%2 !==0">&times;</span></button>
     </div>
     <div class="col-2">
-      <button type="button" class="btn btn-warning">{{tag4}}</button>
+      <button type="button" class="btn btn-warning"
+              *ngIf="string !== 'news'"
+              (click)="onClickByTag4()"
+              [ngStyle]="{'background-color':tagBackColor[3],'color':tagFontColor[3]}">{{tag4}}
+        <span aria-hidden="true" *ngIf="tagClicktimes[3]%2 !==0">&times;</span></button>
     </div>
     <div class="col-2">
-      <button type="button" class="btn btn-info">{{tag5}}</button>
+      <button type="button" class="btn btn-info"
+              *ngIf="string === 'genuine'"
+              (click)="onClickByTag5()"
+              [ngStyle]="{'background-color':tagBackColor[4],'color':tagFontColor[4]}">{{tag5}}
+        <span aria-hidden="true" *ngIf="tagClicktimes[4]%2 !==0">&times;</span></button>
     </div>
   </div>
 </form>

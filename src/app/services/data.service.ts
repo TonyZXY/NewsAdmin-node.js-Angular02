@@ -163,31 +163,31 @@ export class DataService {
   }
 
   searchNewsByKeyWords(key): Observable<{}> {
-    return this.http.get(this.urlHead + '/searchnews?' + 'patten=' + key).pipe(
+    return this.http.get(this.urlHead + '/searchnews?' + 'patten=' + key + '&languageTag=EN&languageTag=CN').pipe(
       catchError(this.handleError)
     );
   }
 
   searchVideoByKeyWords(key): Observable<{}> {
-    return this.http.get(this.urlHead + '/searchVideo?' + 'patten=' + key).pipe(
+    return this.http.get(this.urlHead + '/searchVideo?' + 'patten=' + key + '&languageTag=EN&languageTag=CN').pipe(
       catchError(this.handleError)
     );
   }
 
   searchFlashByKeyWords(key): Observable<{}> {
-    return this.http.get(this.urlHead + '/searchFlash?' + 'patten=' + key).pipe(
+    return this.http.get(this.urlHead + '/searchFlash?' + 'patten=' + key + '&languageTag=EN&languageTag=CN').pipe(
       catchError(this.handleError)
     );
   }
 
   searchGeniuneByKeyWords(key): Observable<{}> {
-    return this.http.get(this.urlHead + '/searchgenuine?' + 'patten=' + key).pipe(
+    return this.http.get(this.urlHead + '/searchgenuine?' + 'patten=' + key + '&languageTag=EN&languageTag=CN').pipe(
       catchError(this.handleError)
     );
   }
   searchNewsByTags(tags): Observable<{}> {
     return this.http.get(this.urlHead + '/getNewsContentOnly?' + 'languageTag=' + tags[0] +
-      'languageTag=' + tags[1]).pipe(
+      '&languageTag=' + tags[1]).pipe(
       catchError(this.handleError)
     );
   }
