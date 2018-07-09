@@ -13,7 +13,9 @@ export class SearchbarComponent implements OnInit {
   public dateToFormat;
   public dateFrom: string;
   public dateTo: string;
+  public keyword: string;
   @Output() messageEvent = new EventEmitter();
+  tagClicktimes: number[]
 
   constructor(private serve: DataService) {
   }
@@ -53,5 +55,34 @@ export class SearchbarComponent implements OnInit {
   sendMessage(message) {
     this.messageEvent.emit(message);
   }
+
+  onClickByKey() {
+    if (this.string === 'news') {
+      this.serve.searchNewsByKeyWords(this.keyword).subscribe(
+        news => {
+          this.sendMessage(news);
+        });
+    } else if (this.string === 'video') {
+      this.serve.searchVideoByKeyWords(this.keyword).subscribe(
+        video => {
+          this.sendMessage(video);
+        }
+      );
+    } else if (this.string === 'flash') {
+      this.serve.searchFlashByKeyWords(this.keyword).subscribe(
+        flash => {
+          this.sendMessage(flash);
+        }
+      );
+    } else if (this.string === 'genuine') {
+      this.serve.searchGeniuneByKeyWords(this.keyword).subscribe(
+        genuine => {
+          this.sendMessage(genuine);
+        }
+      );
+    }
+  }
+
+  onClickByTags(){}
 
 }

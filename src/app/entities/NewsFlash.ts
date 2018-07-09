@@ -4,4 +4,5 @@ export class NewsFlash {
   shortMassage: string;
   __v: number;
   languageTag: string;
+  toSent: boolean;
 }

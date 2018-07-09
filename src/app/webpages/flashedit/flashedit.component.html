@@ -51,6 +51,41 @@
             value="{{flash?.shortMassage}}">
           </textarea>
         </div>
+
+        <div class="form-group">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="toSentTrue1"
+              value=true
+              [(ngModel)]="flashToEdit.toSent"
+              name="toSent"
+              #toSent="ngModel"
+              [checked]="flash?.toSent">
+            <label class="form-check-label" for="toSentTrue1">
+              发送
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="toSentFalse1"
+              value=false
+              [(ngModel)]="flashToEdit.toSent"
+              name="toSent"
+              #toSent="ngModel"
+              [checked]="!flash?.toSent">
+            <label class="form-check-label" for="toSentFalse1">
+              不发送
+            </label>
+          </div>
+        </div>
+
+
+
+
         <button
           (click)="onSubmit()"
           class="btn btn-primary"

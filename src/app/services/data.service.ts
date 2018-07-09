@@ -19,7 +19,7 @@ const httpOptions = {
 })
 
 export class DataService {
-  private urlHead = 'http://10.10.6.111:3000/api';
+  private urlHead = 'http://localhost:3030/api';
   errormessage = '';
 
 
@@ -161,6 +161,61 @@ export class DataService {
       catchError(this.handleError)
     );
   }
+
+  searchNewsByKeyWords(key): Observable<{}> {
+    return this.http.get(this.urlHead + '/searchnews?' + 'patten=' + key).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchVideoByKeyWords(key): Observable<{}> {
+    return this.http.get(this.urlHead + '/searchVideo?' + 'patten=' + key).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchFlashByKeyWords(key): Observable<{}> {
+    return this.http.get(this.urlHead + '/searchFlash?' + 'patten=' + key).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchGeniuneByKeyWords(key): Observable<{}> {
+    return this.http.get(this.urlHead + '/searchgenuine?' + 'patten=' + key).pipe(
+      catchError(this.handleError)
+    );
+  }
+  searchNewsByTags(tags): Observable<{}> {
+    return this.http.get(this.urlHead + '/getNewsContentOnly?' + 'languageTag=' + tags[0] +
+      'languageTag=' + tags[1]).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchVideoByTags(tags): Observable<{}> {
+    return this.http.get(this.urlHead + '/getVideoTypeOnly?' + 'languageTag=' + tags[0]
+      + '&languageTag=' + tags[1] + '&typeTag=' + tags[2] + '&typeTag=' + tags[3]).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchFlashByTags(tags): Observable<{}> {
+    return this.http.get(this.urlHead + '/searchFlashByTag?' + 'languageTag=' + tags[0]
+      + '&languageTag=' + tags[1] + '&sentTag=' + tags[2] + '&sentTag=' + tags[3] ).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  searchGeniuneByTags(tags): Observable<{}> {
+    return this.http.get(this.urlHead + '/getgenuine?' + 'languageTag=' + tags[0]
+      + '&languageTag=' + tags[1] + '&genuineTag=' + tags [2] + '&genuineTag=' + tags[3] + '&genuineTag=' + tags[4]).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+
+
+
 
 
   // deleteGenuine(_id: string): Observable<{}> {

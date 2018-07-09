@@ -21,7 +21,7 @@ export class AuthService {
     user.username = userName;
     user.password = passWord;
     console.log(user);
-    return this.http.post('http://10.10.6.111:3000/login', user, httpOptions).pipe(
+    return this.http.post('http://localhost:3030/login', user, httpOptions).pipe(
       catchError(this.handleError)
     );
   }

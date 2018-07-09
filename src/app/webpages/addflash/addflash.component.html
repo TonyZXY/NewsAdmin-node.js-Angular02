@@ -71,6 +71,41 @@
             *未输入内容
           </label>
         </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="toSentTrue"
+              value=true
+              required
+              [(ngModel)]="newsFlashToAdd.toSent"
+              name="toSent"
+              #toSent="ngModel">
+            <label class="form-check-label" for="toSentTrue">
+              发送
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="toSentFalse"
+              value=false
+              required
+              [(ngModel)]="newsFlashToAdd.toSent"
+              name="toSent"
+              #toSent="ngModel">
+            <label class="form-check-label" for="toSentFalse">
+              不发送
+            </label>
+          </div>
+        </div>
+
+
+
+
+
         <button
           type="submit"
           class="btn btn-primary"

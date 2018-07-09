@@ -1,5 +1,19 @@
 <form>
-  <div class="row">
+  <pre></pre>
+  <div class="btn-group btn-group-toggle" ngbRadioGroup>
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" value="bytime" id="searchByTime" [(ngModel)]="options" name="options"> 按时间
+    </label>
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" value="bykey" id="searchByKey" [(ngModel)]="options" name="options"> 按关键词
+    </label>
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" value="bytag" id="searchByTag" [(ngModel)]="options" name="options"> 按标签
+    </label>
+  </div>
+  <hr>
+  <pre></pre>
+  <div class="row" *ngIf="options ==='bytime'">
     <div class="col-4">
       <label>Start: YYYY-MM-DD</label>
       <div class="input-group">
@@ -28,8 +42,38 @@
     </div>
     <div class="col-2">
       <br>
-      <button (click)="onClick()" class="btn btn-primary">Search</button>
+      <button (click)="onClick()" class="btn btn-primary" style="margin-top: 8px">Search</button>
       <br>
     </div>
   </div>
+  <div class="row" *ngIf="options ==='bykey'">
+    <div class="col-8">
+      <label>Search By Keywords</label>
+      <input id="Keywordsearch" type="text" class="form-control" [(ngModel)]="keyword" name="keyword" />
+    </div>
+    <div class="col-2">
+      <br>
+      <button (click)="onClickByKey()" class="btn btn-primary" style="margin-top: 8px">Search</button>
+      <br>
+    </div>
+  </div>
+  <div class="row" *ngIf="options ==='bytag'">
+    <div class="col-2">
+      <button type="button" class="btn btn-primary">{{tag1}}</button>
+    </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-success">{{tag2}}</button>
+    </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-danger">{{tag3}}</button>
+    </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-warning">{{tag4}}</button>
+    </div>
+    <div class="col-2">
+      <button type="button" class="btn btn-info">{{tag5}}</button>
+    </div>
+  </div>
 </form>
+
+
