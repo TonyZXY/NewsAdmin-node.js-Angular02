@@ -27,6 +27,7 @@ export class SearchbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.keyword = '';
     this.tag1 = '中文';
     this.tag2 = '英文';
     if (this.string !== 'genuine' && this.string !== 'flash') {
@@ -37,7 +38,7 @@ export class SearchbarComponent implements OnInit {
       this.tag3 = '原创文章';
       this.tag4 = '百科';
       this.tag5 = '分析';
-    }else if (this.string === 'flash') {
+    } else if (this.string === 'flash') {
       this.tag3 = '发送';
       this.tag4 = '不发送';
       this.tag5 = '';
@@ -283,13 +284,13 @@ export class SearchbarComponent implements OnInit {
           tags[3] = '百科';
           tags[4] = '分析';
         } else {
-          if(this.tagClicktimes[2] % 2 !== 0) {
+          if (this.tagClicktimes[2] % 2 !== 0) {
             tags[2] = '原创文章';
           }
-          if(this.tagClicktimes[3] % 2 !== 0) {
+          if (this.tagClicktimes[3] % 2 !== 0) {
             tags[3] = '百科';
           }
-          if(this.tagClicktimes[4] % 2 !== 0) {
+          if (this.tagClicktimes[4] % 2 !== 0) {
             tags[4] = '分析';
           }
         }
