@@ -2,13 +2,13 @@
   <pre></pre>
   <div class="btn-group btn-group-toggle" ngbRadioGroup>
     <label ngbButtonLabel class="btn-primary">
-      <input ngbButton type="radio" value="bytime" id="searchByTime" [(ngModel)]="options" name="options" (click)="sendMessage()" > 按时间
+      <input ngbButton type="radio" value="bytime" id="searchByTime" [(ngModel)]="options" name="options" (click)="sendMessage(null)" > 按时间
     </label>
     <label ngbButtonLabel class="btn-primary">
-      <input ngbButton type="radio" value="bykey" id="searchByKey" [(ngModel)]="options" name="options" (click)="sendMessage()" > 按关键词
+      <input ngbButton type="radio" value="bykey" id="searchByKey" [(ngModel)]="options" name="options" (click)="sendMessage(null)" > 按关键词
     </label>
     <label ngbButtonLabel class="btn-primary">
-      <input ngbButton type="radio" value="bytag" id="searchByTag" [(ngModel)]="options" name="options" (click)="sendMessage()" > 按标签
+      <input ngbButton type="radio" value="bytag" id="searchByTag" [(ngModel)]="options" name="options" (click)="sendMessage(null)" > 按标签
     </label>
   </div>
   <hr>

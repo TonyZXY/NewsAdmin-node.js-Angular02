@@ -21,6 +21,7 @@ export class SearchbarComponent implements OnInit {
   public tag3 = '';
   public tag4 = '';
   public tag5 = '';
+  public options;
   tagFontColor;
   tagBackColor ;
   constructor(private serve: DataService) {
