@@ -20,13 +20,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(content) {
-    console.log(this.userName);
-    console.log(this.passWord);
     this.auth.authLogin(this.userName, this.passWord).subscribe(
       result => {
 
         this.result = result;
-        console.log(this.result);
         if (result.login) {
           this.auth.loginstatus = true;
           sessionStorage.setItem('loginstatus', 'success');

@@ -37,7 +37,6 @@ export class ListflashComponent implements OnInit {
       this.endDelete = true;
       this.dataService.getNewsflashList()
         .subscribe(newsFlashes => { this.newsFlashes = newsFlashes;
-          console.log(this.newsFlashes);
         });
     });
     const err = this.dataService.errormessage;

@@ -45,7 +45,6 @@ export class ListnewsComponent implements OnInit {
       this.endDelete = true;
       this.dataService.getNewsList()
         .subscribe(newss => { this.newss = newss;
-          console.log(this.newss);
         });
     });
     const err = this.dataService.errormessage;

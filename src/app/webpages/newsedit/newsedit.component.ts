@@ -60,7 +60,6 @@ export class NewseditComponent implements OnInit {
       this.messageTitle = 'Error';
       this.messageBody = errorMessage;
     }
-    console.log(errorMessage);
   }
 
   openDelete(content) {

@@ -49,7 +49,6 @@ export class GenuineeditComponent implements OnInit {
     if (this.genuineToEdit.url) {
       this.genuine.url = this.genuineToEdit.url;
     }
-    console.log(this.genuine);
     const errorMessage = this.serve.editGenuine(this.genuine);
     if (errorMessage === '') {
       this.messageTitle = '成功更新原创文章';
@@ -65,7 +64,6 @@ export class GenuineeditComponent implements OnInit {
   }
 
   onDelete(id) {
-    console.log(id);
     this.serve.deleteGeniune(id).subscribe( next => {
       this.router.navigateByUrl('/genuine/list');
     });

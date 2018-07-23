@@ -20,8 +20,7 @@ export class AuthService {
     const user = new User();
     user.username = userName;
     user.password = passWord;
-    console.log(user);
-    return this.http.post('http://10.10.6.18:3020/login', user, httpOptions).pipe(
+    return this.http.post('https://bglnewsbkend.tk/login', user, httpOptions).pipe(
       catchError(this.handleError)
     );
   }

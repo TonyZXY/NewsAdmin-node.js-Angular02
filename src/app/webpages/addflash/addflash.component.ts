@@ -21,7 +21,6 @@ export class AddflashComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.newsFlashToAdd);
     const errorMessage = this.dataService.addNewsFlash(this.newsFlashToAdd);
     if (errorMessage === '') {
       this.messageTitle = '成功添加快讯';

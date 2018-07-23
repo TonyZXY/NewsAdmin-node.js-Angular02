@@ -255,7 +255,7 @@ export class SearchbarComponent implements OnInit {
           }
         }
 
-        console.log(tags);
+
 
         this.serve.searchFlashByTags(tags).subscribe(
           flash => {
@@ -296,7 +296,7 @@ export class SearchbarComponent implements OnInit {
           }
         }
 
-        console.log(tags);
+
 
         this.serve.searchGeniuneByTags(this.keyword).subscribe(
           genuine => {

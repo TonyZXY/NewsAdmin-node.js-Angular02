@@ -22,7 +22,6 @@ export class AddnewsComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.newsToAdd);
     const errorMessage = this.dataService.addNews(this.newsToAdd);
     if (errorMessage === '') {
       this.messageTitle = '成功添加新闻';

@@ -37,7 +37,6 @@ export class ListgeniuneComponent implements OnInit {
       this.endDelete = true;
       this.dataService.getGenuineList()
         .subscribe(genuines => { this.genuines = genuines;
-          console.log(this.genuines);
         });
     });
     const err = this.dataService.errormessage;
