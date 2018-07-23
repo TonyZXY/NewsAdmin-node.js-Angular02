@@ -19,7 +19,7 @@ const httpOptions = {
 })
 
 export class DataService {
-  private urlHead = 'https://bglnewsbkend.cf/api';
+  private urlHead = 'https://bglnewsbkend.tk/api';
   errormessage = '';
 
 
