@@ -53,6 +53,23 @@
           </label>
         </div>
         <div class="form-group">
+          <label for="titleLabel">标题</label>
+          <input
+            type="text"
+            class="form-control"
+            id="titleLabel"
+            required
+            [(ngModel)]="newsFlashToAdd.title"
+            name="title"
+            #title="ngModel">
+          <label
+            for="titleLabel"
+            [hidden]="title.valid || !(title.dirty || title.touched)"
+            class="alert alert-danger col-12">
+            *未输入标题
+          </label>
+        </div>
+        <div class="form-group">
           <label for="shortMessageLabel">快讯内容</label>
           <textarea
             type="text"
