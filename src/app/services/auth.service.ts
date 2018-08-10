@@ -20,8 +20,7 @@ export class AuthService {
     const user = new User();
     user.username = userName;
     user.password = passWord;
-    console.log(user);
-    return this.http.post('http://127.0.0.1:3020/login', user, httpOptions).pipe(
+    return this.http.post('https://cryptogeekapp.com/login', user, httpOptions).pipe(
       catchError(this.handleError)
     );
   }

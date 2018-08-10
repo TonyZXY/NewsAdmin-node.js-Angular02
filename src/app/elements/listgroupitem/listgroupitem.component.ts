@@ -27,8 +27,9 @@ export class ListgroupitemComponent implements OnInit {
   }
 
   setTime(time: string) {
-    time = this.time.substring(0, 10) + ' ' + this.time.substring(11, 19);
-    return time;
+    const timeTo = new Date(time);
+    const timeToDis = timeTo.toLocaleString();
+    return timeToDis.substring(0, 10) + ' ' + timeToDis.substring(11, 20);
   }
 
   openVerticallyCentered(content) {

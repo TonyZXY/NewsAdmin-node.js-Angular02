@@ -38,7 +38,6 @@ export class ListvideoComponent implements OnInit {
       this.endDelete = true;
       this.dataservice.getVideosList()
         .subscribe(videos => { this.videos = videos;
-          console.log(this.videos);
         });
     });
     const err = this.dataservice.errormessage;

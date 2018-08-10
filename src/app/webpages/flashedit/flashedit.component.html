@@ -41,6 +41,18 @@
           </div>
         </div>
         <div class="form-group">
+          <label for="exampleInputEmail1">标题</label>
+          <input
+            [(ngModel)]="flashToEdit.title"
+            name="title"
+            #title="ngModel"
+            required
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            value="{{flash?.title}}">
+        </div>
+        <div class="form-group">
           <label>消息</label>
           <textarea
             [(ngModel)]="flashToEdit.shortMassage"
@@ -48,7 +60,8 @@
             name="message"
             #message="ngModel"
             id="message"
-            value="{{flash?.shortMassage}}">
+            value="{{flash?.shortMassage}}"
+          style="height: 300px">
           </textarea>
         </div>
 

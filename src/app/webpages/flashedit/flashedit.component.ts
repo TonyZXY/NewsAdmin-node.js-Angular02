@@ -31,6 +31,9 @@ export class FlasheditComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.flashToEdit.title) {
+      this.flash.title = this.flashToEdit.title;
+    }
     if (this.flashToEdit.shortMassage) {
       this.flash.shortMassage = this.flashToEdit.shortMassage;
     }
@@ -38,7 +41,6 @@ export class FlasheditComponent implements OnInit {
       this.flash.languageTag = this.flashToEdit.languageTag;
     }
     this.flash.toSent = this.flashToEdit.toSent;
-    console.log(this.flash.toSent);
     const errorMessage = this.serve.editFlash(this.flash);
     if (errorMessage === '') {
       this.messageTitle = '成功更新快讯';

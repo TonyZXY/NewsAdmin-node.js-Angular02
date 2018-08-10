@@ -21,7 +21,6 @@ export class AddgenuineComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.genuineToAdd);
     const errorMessage = this.dataService.addGenuine(this.genuineToAdd);
     if (errorMessage === '') {
       this.messageTitle = '成功添加原创文章';

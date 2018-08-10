@@ -22,8 +22,6 @@ export class AddvideoComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.videoToAdd);
-    console.log(this.videoToAdd);
     const errorMessage = this.dataService.addVideo(this.videoToAdd);
     if (errorMessage === '') {
       this.messageTitle = '成功添加视频';

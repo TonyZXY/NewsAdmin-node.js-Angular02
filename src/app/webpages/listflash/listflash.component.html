@@ -14,7 +14,7 @@
         <app-listgroupitem
           *ngFor="let f of newsFlashes"
           [time]="f.publishedTime"
-          [labelTitle]="f.shortMassage"
+          [labelTitle]="f.title"
           [id]="f._id"
           [edit]="edit"
           [delete]="delete"
