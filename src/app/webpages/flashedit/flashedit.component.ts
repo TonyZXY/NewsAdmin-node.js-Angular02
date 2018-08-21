@@ -31,6 +31,9 @@ export class FlasheditComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.flashToEdit.title) {
+      this.flash.title = this.flashToEdit.title;
+    }
     if (this.flashToEdit.shortMassage) {
       this.flash.shortMassage = this.flashToEdit.shortMassage;
     }
