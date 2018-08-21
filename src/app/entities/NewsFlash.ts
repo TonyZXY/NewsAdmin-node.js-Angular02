@@ -5,4 +5,5 @@ export class NewsFlash {
   __v: number;
   languageTag: string;
   toSent: boolean;
+  available: boolean;
 }
