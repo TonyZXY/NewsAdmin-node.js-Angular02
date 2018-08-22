@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NewsFlash} from '../../entities/NewsFlash';
 import {DataService} from '../../services/data.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {forEach} from '../../../../node_modules/@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-listflash',
@@ -22,7 +23,14 @@ export class ListflashComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getNewsflashList()
-      .subscribe(newsFlashes => this.newsFlashes = newsFlashes);
+      .subscribe(newsFlashes =>{
+          newsFlashes.forEach(e => {
+            if (e.available === false){
+              e.title = '[DELETED]' + e.title;
+            }
+          });
+          this.newsFlashes = newsFlashes;
+        });
   }
 
   onNotifySureToDelete(id: string, content) {

@@ -3,7 +3,8 @@
     <time class="timeText">{{setTime(time)}}</time>
   </div>
   <div class="col-lg-7 align-items-center">
-    <strong>{{labelTitle}}</strong>
+    <strong style="color: firebrick" *ngIf="!available">{{labelTitle}}</strong>
+    <strong *ngIf="available">{{labelTitle}}</strong>
   </div>
   <div class="col-lg-1">
     <span>
@@ -12,7 +13,7 @@
   </div>
   <div class="col-lg-1">
     <span>
-      <button class="btn btn-danger" role="button" (click)="onClickSureToDelete()"  > Delete </button>
+      <button class="btn btn-danger" role="button" (click)="onClickSureToDelete()" *ngIf="available" > Delete </button>
     </span>
   </div>
 </li>

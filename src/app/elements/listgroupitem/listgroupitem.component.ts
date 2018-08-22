@@ -12,6 +12,7 @@ export class ListgroupitemComponent implements OnInit {
   @Input() id;
   @Input() edit;
   @Input() delete;
+  @Input() available;
   @Output() idToDelete = new EventEmitter();
 
   @Input() endDelete: boolean;
