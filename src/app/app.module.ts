@@ -28,17 +28,17 @@ import {WelcomeComponent} from './webpages/welcome/welcome.component';
 import {HomeviewComponent} from './elements/homeview/homeview.component';
 import {FormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { NewssearchComponent } from './webpages/newssearch/newssearch.component';
-import { VideosearchComponent } from './webpages/videosearch/videosearch.component';
-import { FlashsearchComponent } from './webpages/flashsearch/flashsearch.component';
-import { GenuinesearchComponent } from './webpages/genuinesearch/genuinesearch.component';
-import { AuthGuard } from './services/auth.guard';
-import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { LoginComponent } from './webpages/login/login.component';
+import {NewssearchComponent} from './webpages/newssearch/newssearch.component';
+import {VideosearchComponent} from './webpages/videosearch/videosearch.component';
+import {FlashsearchComponent} from './webpages/flashsearch/flashsearch.component';
+import {GenuinesearchComponent} from './webpages/genuinesearch/genuinesearch.component';
+import {AuthGuard} from './services/auth.guard';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {LoginComponent} from './webpages/login/login.component';
 import {AuthService} from './services/auth.service';
 import {TokenIntercepterService} from './services/token-intercepter.service';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import {UpdateComponent} from './webpages/update/update.component';
 
 
 const appRoutes: Routes = [
@@ -60,10 +60,11 @@ const appRoutes: Routes = [
   {path: 'genuine/search', component: GenuinesearchComponent, canActivate: [AuthGuard]},
   {path: '', component: LoginComponent},
   {path: 'home', component: WelcomeComponent, canActivate: [AuthGuard]},
-  {path: 'news', component: NewshomeComponent, canActivate: [AuthGuard] },
+  {path: 'news', component: NewshomeComponent, canActivate: [AuthGuard]},
   {path: 'flash', component: FlashhomeComponent, canActivate: [AuthGuard]},
   {path: 'video', component: VideohomeComponent, canActivate: [AuthGuard]},
-  {path: 'genuine', component: GenuinehomeComponent, canActivate: [AuthGuard]}
+  {path: 'genuine', component: GenuinehomeComponent, canActivate: [AuthGuard]},
+  {path: 'update', component: UpdateComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -95,7 +96,8 @@ const appRoutes: Routes = [
     VideosearchComponent,
     FlashsearchComponent,
     GenuinesearchComponent,
-    LoginComponent
+    LoginComponent,
+    UpdateComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -103,14 +105,14 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes,{useHash:true})
+    RouterModule.forRoot(appRoutes, {useHash: true})
   ],
   providers: [DataService, AuthGuard, AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenIntercepterService,
       multi: true
-    },{
+    }, {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     }],

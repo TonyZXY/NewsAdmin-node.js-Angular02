@@ -43,14 +43,10 @@ export class FlasheditComponent implements OnInit {
     if (this.flashToEdit.toSent) {
       this.flash.toSent = this.flashToEdit.toSent;
     }
-    console.log(this.flashToEdit.toSent);
 
     if (this.flashToEdit.available) {
       this.flash.available = this.flashToEdit.available ;
     }
-    console.log(this.flashToEdit.available);
-
-    console.log(this.flash)
     const errorMessage = this.serve.editFlash(this.flash);
     if (errorMessage === '') {
       this.messageTitle = '成功更新快讯';

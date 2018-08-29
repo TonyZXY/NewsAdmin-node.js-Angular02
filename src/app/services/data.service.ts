@@ -7,7 +7,7 @@ import {NewsFlash} from '../entities/NewsFlash';
 import {Genuine} from '../entities/Genuine';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
-
+import {Update} from '../entities/Update';
 
 
 const httpOptions = {
@@ -88,6 +88,7 @@ export class DataService {
     ).subscribe();
     return this.errormessage;
   }
+
   editNews(news: News): string {
     this.http.put<News>(this.urlHead + '/news/' + news._id, news, httpOptions).pipe(
       catchError(this.handleError)
@@ -123,16 +124,19 @@ export class DataService {
       catchError(this.handleError)
     );
   }
+
   deleteVideo(_id: string): Observable<{}> {
     return this.http.delete(this.urlHead + '/video/' + _id, httpOptions).pipe(
       catchError(this.handleError)
     );
   }
+
   deleteNewsFlash(_id: string): Observable<{}> {
     return this.http.delete(this.urlHead + '/flash/' + _id, httpOptions).pipe(
       catchError(this.handleError)
     );
   }
+
   deleteGeniune(_id: string): Observable<{}> {
     return this.http.delete(this.urlHead + '/genuine/' + _id, httpOptions).pipe(
       catchError(this.handleError)
@@ -186,6 +190,7 @@ export class DataService {
       catchError(this.handleError)
     );
   }
+
   searchNewsByTags(tags): Observable<{}> {
     return this.http.get(this.urlHead + '/getNewsContentOnly?' + 'languageTag=' + tags[0] +
       '&languageTag=' + tags[1]).pipe(
@@ -202,7 +207,7 @@ export class DataService {
 
   searchFlashByTags(tags): Observable<{}> {
     return this.http.get(this.urlHead + '/searchFlashByTag?' + 'languageTag=' + tags[0]
-      + '&languageTag=' + tags[1] + '&sentTag=' + tags[2] + '&sentTag=' + tags[3] ).pipe(
+      + '&languageTag=' + tags[1] + '&sentTag=' + tags[2] + '&sentTag=' + tags[3]).pipe(
       catchError(this.handleError)
     );
   }
@@ -214,9 +219,16 @@ export class DataService {
     );
   }
 
+  getUpdate(): Observable<Update> {
+    return this.http.get<Update>(this.urlHead + '/update').pipe();
+  }
 
-
-
+  editUpdate(update: Update): string {
+    this.http.post<Update>(this.urlHead + '/update', update, httpOptions).pipe(
+      catchError(this.handleError)
+    ).subscribe();
+    return this.errormessage;
+  }
 
 
   // deleteGenuine(_id: string): Observable<{}> {
