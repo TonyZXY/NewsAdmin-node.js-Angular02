@@ -34,9 +34,9 @@ export class GenuineeditComponent implements OnInit {
     if (this.genuineToEdit.title) {
       this.genuine.title = this.genuineToEdit.title;
     }
-    if (this.genuineToEdit.genuineTag) {
-      this.genuine.genuineTag = this.genuineToEdit.genuineTag;
-    }
+    // if (this.genuineToEdit.genuineTag) {
+    //   this.genuine.genuineTag = this.genuineToEdit.genuineTag;
+    // }
     if (this.genuineToEdit.languageTag) {
       this.genuine.languageTag = this.genuineToEdit.languageTag;
     }

@@ -4,7 +4,7 @@ export class Genuine {
   author: string;
   title: string;
   genuineDescription: string;
-  genuineTag: string;
+  // genuineTag: string;
   url: string;
   imageURL: string;
   __v: number;

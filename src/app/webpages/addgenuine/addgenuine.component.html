@@ -48,58 +48,58 @@
             *未输入作者
           </label>
         </div>
-        <label>
-          标签
-        </label>
-        <div class="form-group">
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              id="genuinePage"
-              value="原创文章"
-              required
-              [(ngModel)]="genuineToAdd.genuineTag"
-              name="genuineTag"
-              #genuineTag="ngModel">
-            <label class="form-check-label" for="genuinePage">
-              原创文章
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              id="wiki"
-              value="百科"
-              required
-              [(ngModel)]="genuineToAdd.genuineTag"
-              name="genuineTag"
-              #genuineTag="ngModel">
-            <label class="form-check-label" for="wiki">
-              百科
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              id="analysis"
-              value="分析"
-              required
-              [(ngModel)]="genuineToAdd.genuineTag"
-              name="genuineTag"
-              #genuineTag="ngModel">
-            <label class="form-check-label" for="analysis">
-              分析
-            </label>
-          </div>
-          <label
-            *ngIf="genuineTag.touched && genuineTag.invalid"
-            class="alert alert-danger col-12">
-            *未选择文章类型标签
-          </label>
-        </div>
+        <!--<label>-->
+          <!--标签-->
+        <!--</label>-->
+        <!--<div class="form-group">-->
+          <!--<div class="form-check">-->
+            <!--<input-->
+              <!--class="form-check-input"-->
+              <!--type="radio"-->
+              <!--id="genuinePage"-->
+              <!--value="原创文章"-->
+              <!--required-->
+              <!--[(ngModel)]="genuineToAdd.genuineTag"-->
+              <!--name="genuineTag"-->
+              <!--#genuineTag="ngModel">-->
+            <!--<label class="form-check-label" for="genuinePage">-->
+              <!--原创文章-->
+            <!--</label>-->
+          <!--</div>-->
+          <!--<div class="form-check">-->
+            <!--<input-->
+              <!--class="form-check-input"-->
+              <!--type="radio"-->
+              <!--id="wiki"-->
+              <!--value="百科"-->
+              <!--required-->
+              <!--[(ngModel)]="genuineToAdd.genuineTag"-->
+              <!--name="genuineTag"-->
+              <!--#genuineTag="ngModel">-->
+            <!--<label class="form-check-label" for="wiki">-->
+              <!--百科-->
+            <!--</label>-->
+          <!--</div>-->
+          <!--<div class="form-check">-->
+            <!--<input-->
+              <!--class="form-check-input"-->
+              <!--type="radio"-->
+              <!--id="analysis"-->
+              <!--value="分析"-->
+              <!--required-->
+              <!--[(ngModel)]="genuineToAdd.genuineTag"-->
+              <!--name="genuineTag"-->
+              <!--#genuineTag="ngModel">-->
+            <!--<label class="form-check-label" for="analysis">-->
+              <!--分析-->
+            <!--</label>-->
+          <!--</div>-->
+          <!--<label-->
+            <!--*ngIf="genuineTag.touched && genuineTag.invalid"-->
+            <!--class="alert alert-danger col-12">-->
+            <!--*未选择文章类型标签-->
+          <!--</label>-->
+        <!--</div>-->
         <label>
           语言
         </label>
