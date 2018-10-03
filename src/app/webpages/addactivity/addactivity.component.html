@@ -1,0 +1,164 @@
+<app-menubar></app-menubar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <app-toolbar [parentPath]="string"></app-toolbar>
+    </div>
+    <div class="col-sm-10">
+      <form
+        class="col-7"
+        method="post"
+        action="/newsflash/addNewsFlash"
+        (ngSubmit)="onSubmit()"
+        #addNewsFlashForm="ngForm">
+        <div class="form-group">
+        <h3>快讯添加</h3>
+        </div>
+        <label>
+          语言
+        </label>
+        <div class="form-group">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="cn_language"
+              value="CN"
+              required
+              [(ngModel)]="newsFlashToAdd.languageTag"
+              name="languageTag"
+              #languageTag="ngModel">
+            <label class="form-check-label" for="cn_language">
+              中文
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="en_language"
+              value="EN"
+              required
+              [(ngModel)]="newsFlashToAdd.languageTag"
+              name="languageTag"
+              #languageTag="ngModel">
+            <label class="form-check-label" for="en_language">
+              英文
+            </label>
+          </div>
+          <label
+            *ngIf="languageTag.touched && languageTag.invalid"
+            class="alert alert-danger col-12">
+            *未选择语言标签
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="titleLabel">标题</label>
+          <input
+            type="text"
+            class="form-control"
+            id="titleLabel"
+            required
+            [(ngModel)]="newsFlashToAdd.title"
+            name="title"
+            #title="ngModel">
+          <label
+            for="titleLabel"
+            [hidden]="title.valid || !(title.dirty || title.touched)"
+            class="alert alert-danger col-12">
+            *未输入标题
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="shortMessageLabel">快讯内容</label>
+          <textarea
+            type="text"
+            class="form-control"
+            rows="10"
+            id="shortMessageLabel"
+            required
+            [(ngModel)]="newsFlashToAdd.shortMassage"
+            name="shortMassage"
+            #shortMassage="ngModel">
+          </textarea>
+          <label
+            for="shortMessageLabel"
+            [hidden]="shortMassage.valid || !(shortMassage.dirty || shortMassage.touched)"
+            class="alert alert-danger col-12">
+            *未输入内容
+          </label>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="toSentTrue"
+              value=true
+              required
+              [(ngModel)]="newsFlashToAdd.toSent"
+              name="toSent"
+              #toSent="ngModel">
+            <label class="form-check-label" for="toSentTrue">
+              发送
+            </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              id="toSentFalse"
+              value=false
+              required
+              [(ngModel)]="newsFlashToAdd.toSent"
+              name="toSent"
+              #toSent="ngModel">
+            <label class="form-check-label" for="toSentFalse">
+              不发送
+            </label>
+          </div>
+        </div>
+
+
+
+
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!addNewsFlashForm.form.valid"
+          data-toggle="modal"
+          data-target="#informationDialog">
+          Submit
+        </button>
+
+        <div class="modal fade" id="informationDialog" tabindex="-1" role="dialog"
+             aria-labelledby="informationDialogTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="informationDialogTitle">{{messageTitle}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                {{messageBody}}
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                  (click)="succeeded ? (addNewsFlashForm.reset()) && (succeeded=false):false">
+                  关闭
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
