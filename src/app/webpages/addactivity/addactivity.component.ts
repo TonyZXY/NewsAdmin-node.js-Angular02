@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NewsFlash} from '../../entities/NewsFlash';
+import {Activity} from '../../entities/Activity';
 import {DataService} from '../../services/data.service';
 
 @Component({
@@ -9,7 +9,7 @@ import {DataService} from '../../services/data.service';
 })
 export class AddactivityComponent implements OnInit {
   public string = 'activity';
-  newsFlashToAdd = new NewsFlash;
+  activityToAdd = new Activity;
   messageTitle: string;
   messageBody: string;
   succeeded: boolean;
