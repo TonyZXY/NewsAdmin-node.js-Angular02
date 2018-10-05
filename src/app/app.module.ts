@@ -16,6 +16,7 @@ import {SearchbarComponent} from './elements/searchbar/searchbar.component';
 import {ListflashComponent} from './webpages/listflash/listflash.component';
 import {ListgeniuneComponent} from './webpages/listgeniune/listgeniune.component';
 import {ListvideoComponent} from './webpages/listvideo/listvideo.component';
+import {ListactivityComponent} from './webpages/listactivity/listactivity.component';
 import {AddflashComponent} from './webpages/addflash/addflash.component';
 import {AddvideoComponent} from './webpages/addvideo/addvideo.component';
 import {AddnewsComponent} from './webpages/addnews/addnews.component';
@@ -39,7 +40,10 @@ import {AuthService} from './services/auth.service';
 import {TokenIntercepterService} from './services/token-intercepter.service';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {UpdateComponent} from './webpages/update/update.component';
-
+import { AddactivityComponent } from './webpages/addactivity/addactivity.component';
+import { ActivityhomeComponent } from './webpages/activityhome/activityhome.component';
+import { ActivityeditComponent } from './webpages/activityedit/activityedit.component';
+import { ActivitysearchComponent } from './webpages/activitysearch/activitysearch.component';
 
 const appRoutes: Routes = [
   {path: 'news/edit/:id', component: NewseditComponent, canActivate: [AuthGuard]},
@@ -58,13 +62,18 @@ const appRoutes: Routes = [
   {path: 'flash/search', component: FlashsearchComponent, canActivate: [AuthGuard]},
   {path: 'genuine/add', component: AddgenuineComponent, canActivate: [AuthGuard]},
   {path: 'genuine/search', component: GenuinesearchComponent, canActivate: [AuthGuard]},
+  {path: 'activity/add', component: AddactivityComponent, canActivate: [AuthGuard]},
+  {path: 'activity/search', component: ActivitysearchComponent, canActivate: [AuthGuard]},
+  {path: 'activity/edit/:id', component: ActivityeditComponent, canActivate: [AuthGuard]},
+  {path: 'activity/list', component: ListactivityComponent, canActivate: [AuthGuard]},
   {path: '', component: LoginComponent},
   {path: 'home', component: WelcomeComponent, canActivate: [AuthGuard]},
   {path: 'news', component: NewshomeComponent, canActivate: [AuthGuard]},
   {path: 'flash', component: FlashhomeComponent, canActivate: [AuthGuard]},
   {path: 'video', component: VideohomeComponent, canActivate: [AuthGuard]},
   {path: 'genuine', component: GenuinehomeComponent, canActivate: [AuthGuard]},
-  {path: 'update', component: UpdateComponent, canActivate: [AuthGuard]}
+  {path: 'update', component: UpdateComponent, canActivate: [AuthGuard]},
+  {path: 'activity', component: ActivityhomeComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -97,7 +106,12 @@ const appRoutes: Routes = [
     FlashsearchComponent,
     GenuinesearchComponent,
     LoginComponent,
-    UpdateComponent
+    UpdateComponent,
+    AddactivityComponent,
+    ActivityhomeComponent,
+    ActivityeditComponent,
+    ActivitysearchComponent,
+    ListactivityComponent
   ],
   imports: [
     NgbModule.forRoot(),
