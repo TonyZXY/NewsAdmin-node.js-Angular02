@@ -8,6 +8,7 @@ import {Genuine} from '../entities/Genuine';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Update} from '../entities/Update';
+import { Activity } from '../entities/Activity';
 
 
 const httpOptions = {
@@ -48,6 +49,10 @@ export class DataService {
     return this.http.get<NewsFlash[]>(this.urlHead + '/flashlist').pipe();
   }
 
+  getActivityList(): Observable<Activity[]> {
+    return this.http.get<Activity[]>(this.urlHead + '/eventAll').pipe();
+  }
+
   getFlash(id): Observable<NewsFlash> {
     return this.http.get<NewsFlash>(this.urlHead + '/flashList/' + id);
   }
@@ -84,6 +89,13 @@ export class DataService {
 
   addGenuine(genuine: Genuine): string {
     this.http.post<Genuine>(this.urlHead + '/genuine', genuine, httpOptions).pipe(
+      catchError(this.handleError)
+    ).subscribe();
+    return this.errormessage;
+  }
+
+  addActivity(activity: Activity): string {
+    this.http.post<Activity>(this.urlHead + '/addEvent', activity, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
     return this.errormessage;

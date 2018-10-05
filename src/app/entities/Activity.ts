@@ -2,7 +2,7 @@ export class Activity {
     _id:string;
     eventID:string;
     __v:number;
-    custom: Boolean;
+    custom: boolean;
     eventAddress:string;
     eventCity: string;
     eventCreatedTime: string;

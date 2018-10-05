@@ -18,11 +18,11 @@
               id="titleLabel"
               required
               [(ngModel)]="activityToAdd.eventName"
-              name="title"
-              #title="ngModel">
+              name="eventName"
+              #eventName="ngModel">
             <label
               for="titleLabel"
-              [hidden]="title.valid || !(title.dirty || title.touched)"
+              [hidden]="eventName.valid || !(eventName.dirty || eventName.touched)"
               class="alert alert-danger col-12">
               *未输入标题
             </label>
@@ -46,14 +46,16 @@
           </div>
           <div class="form-group">
             <label for="descriptionLabel">活动简介</label>
-            <input
+            <textarea
               type="text"
               class="form-control"
               id="descriptionLabel"
+              rows="5"
               required
               [(ngModel)]="activityToAdd.eventDescription"
               name="description"
               #description="ngModel">
+            </textarea>
             <label
               for="descriptionLabel"
               [hidden]="description.valid || !(description.dirty || description.touched)"
@@ -96,40 +98,43 @@
               *未输入区
             </label>
           </div>
-          <div class="form-group">
-            <label for="dateLabel">日期</label>
-            <input
-              type="text"
-              class="form-control"
-              id="dateLabel"
-              required
-              [(ngModel)]="activityToAdd.date"
-              name="date"
-              #date="ngModel">
-            <label
+
+          <br><br>
+          <div class="row">
+            <div class="col-4">
+              <label>举行日期: YYYY-MM-DD</label>
+              <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd"
+                       name="dateStart" [(ngModel)]="dateStartFormat" ngbDatepicker #df="ngbDatepicker" #dateStart="ngModel" id="dateLabel">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="df.toggle()" type="button">
+                      <img src="assets/images/calendar.png" style="width: 1.8rem; height: 1.8rem; cursor: pointer;">
+                  </button>
+                </div>
+              </div>
+
+              <label
               for="dateLabel"
-              [hidden]="date.valid || !(date.dirty || date.touched)"
+              [hidden]="dateStart.valid || !(dateStart.dirty || dateStart.touched)"
               class="alert alert-danger col-12">
-              *未输入时间
+              *未输入区
             </label>
+              <!--<input [(ngModel)]="dateFrom" name="from" #from="ngModel" type="text" class="form-control" placeholder="Start: YYYY,MM,DD">-->
+            </div>
           </div>
-          <div class="form-group">
-            <label for="timeLabel">时间</label>
-            <input
-              type="text"
-              class="form-control"
-              id="timeLabel"
-              required
-              [(ngModel)]="activityToAdd.time"
-              name="time"
-              #time="ngModel">
-            <label
-              for="timeLabel"
-              [hidden]="time.valid || !(time.dirty || time.touched)"
-              class="alert alert-danger col-12">
-              *未输入时间
-            </label>
+          
+          <br><br>
+          <div class="row">
+            <div class="col-4">
+            <ngb-timepicker name="timeSet" [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
+            <button type="button" class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}" (click)="toggleMeridian()">
+              24小时制 - {{meridian ? "开" : "关"}}
+            </button>
+            <!-- <ngb-timepicker name="timeSet" [(ngModel)]="time"></ngb-timepicker> -->
+            <hr>
+            </div>
           </div>
+
           <div class="form-group">
             <label for="imageUrlLabel">图片地址</label>
             <textarea
@@ -138,7 +143,7 @@
               rows="5"
               id="imageUrlLabel"
               required
-              [(ngModel)]="activityToAdd.imageURL"
+              [(ngModel)]="activityToAdd.eventImageURL"
               name="imageURL"
               #imageURL="ngModel">
             </textarea>
@@ -157,7 +162,7 @@
               rows="5"
               id="urlLabel"
               required
-              [(ngModel)]="activityToAdd.url"
+              [(ngModel)]="activityToAdd.eventURL"
               name="url"
               #url="ngModel">
             </textarea>
