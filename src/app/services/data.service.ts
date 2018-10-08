@@ -20,7 +20,8 @@ const httpOptions = {
 })
 
 export class DataService {
-  private urlHead = 'https://cryptogeekapp.com/api';
+  // private urlHead = 'https://cryptogeekapp.com/api';
+  private urlHead = 'http://10.10.6.110:3020/api';
   errormessage = '';
 
 
@@ -51,6 +52,10 @@ export class DataService {
 
   getActivityList(): Observable<Activity[]> {
     return this.http.get<Activity[]>(this.urlHead + '/eventAll').pipe();
+  }
+
+  getActivity(id): Observable<Activity> {
+    return this.http.get<Activity>(this.urlHead + '/getEvent/' + id);
   }
 
   getFlash(id): Observable<NewsFlash> {
@@ -129,6 +134,13 @@ export class DataService {
     ).subscribe();
     return this.errormessage;
   }
+
+  // editActivity(activity: Activity): string {
+  //   this.http.put<Genuine>(this.urlHead + '/genuine/' + genuine._id, genuine, httpOptions).pipe(
+  //     catchError(this.handleError)
+  //   ).subscribe();
+  //   return this.errormessage;
+  // }
 
 
   deleteNews(_id: string): Observable<{}> {

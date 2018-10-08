@@ -29,10 +29,12 @@ export class AddactivityComponent implements OnInit {
 
   onSubmit() {
     this.newDate = new Date();
-    this.newDate.setFullYear(this.dateStartFormat.year,this.dateStartFormat.month-1,this.dateStartFormat.day)
-    this.newDate.setHours(this.time.hour,this.time.minute,0,0)
+    this.newDate.setFullYear(this.dateStartFormat.year,
+      this.dateStartFormat.month - 1,
+        this.dateStartFormat.day);
+    this.newDate.setHours(this.time.hour,  this.time.minute, 0, 0);
     this.activityToAdd.eventStartTime = this.newDate.toISOString();
-    this.activityToAdd.eventID = (Math.random()).toString(36).substr(2, 9)
+    this.activityToAdd.eventID = (Math.random()).toString(36).substr(2, 9);
     this.activityToAdd.custom = true;
 
     const errorMessage = this.dataService.addActivity(this.activityToAdd);
