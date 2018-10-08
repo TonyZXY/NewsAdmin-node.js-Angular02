@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Activity} from '../../entities/Activity';
 import {DataService} from '../../services/data.service';
 
@@ -18,13 +18,15 @@ export class AddactivityComponent implements OnInit {
   newDate: Date;
   time = {hour: 13, minute: 30};
   meridian = true;
-  constructor(private dataService: DataService) { }
+
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit() {
   }
 
   toggleMeridian() {
-      this.meridian = !this.meridian;
+    this.meridian = !this.meridian;
   }
 
   onSubmit() {

@@ -23,7 +23,8 @@ export class SearchbarComponent implements OnInit {
   public tag5 = '';
   public options;
   tagFontColor;
-  tagBackColor ;
+  tagBackColor;
+
   constructor(private serve: DataService) {
   }
 
@@ -77,6 +78,7 @@ export class SearchbarComponent implements OnInit {
       );
     }
   }
+
   sendMessage(message) {
     this.messageEvent.emit(message);
   }
@@ -121,9 +123,10 @@ export class SearchbarComponent implements OnInit {
     }
     this.searchByTag();
   }
+
   onClickByTag2() {
     this.tagClicktimes[1]++;
-    if(this.tagClicktimes[1] % 2 !== 0) {
+    if (this.tagClicktimes[1] % 2 !== 0) {
       this.tagBackColor[1] = '#28a745';
       this.tagFontColor[1] = '#fff';
     } else {
@@ -133,9 +136,10 @@ export class SearchbarComponent implements OnInit {
     }
     this.searchByTag();
   }
+
   onClickByTag3() {
     this.tagClicktimes[2]++;
-    if(this.tagClicktimes[2]%2 !== 0){
+    if (this.tagClicktimes[2] % 2 !== 0) {
       this.tagBackColor[2] = '#dc3545';
       this.tagFontColor[2] = '#fff';
     }
@@ -146,9 +150,10 @@ export class SearchbarComponent implements OnInit {
     }
     this.searchByTag();
   }
+
   onClickByTag4() {
     this.tagClicktimes[3]++;
-    if(this.tagClicktimes[3] % 2 !== 0) {
+    if (this.tagClicktimes[3] % 2 !== 0) {
       this.tagBackColor[3] = '#ffc107';
       this.tagFontColor[3] = '#212529';
     } else {
@@ -158,6 +163,7 @@ export class SearchbarComponent implements OnInit {
     }
     this.searchByTag();
   }
+
   onClickByTag5() {
     this.tagClicktimes[4]++;
     if (this.tagClicktimes[4] % 2 === 0) {
@@ -172,17 +178,17 @@ export class SearchbarComponent implements OnInit {
   }
 
   searchByTag() {
-    let tags= ['', '', ''  , '' , ''];
+    let tags = ['', '', '', '', ''];
     if (this.string === 'news') {
-      if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0){
+      if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0) {
         this.sendMessage(null);
       } else {
-          if (this.tagClicktimes[0] % 2 !== 0) {
-            tags[0] = 'CN';
-          }
-          if (this.tagClicktimes[1] % 2 !== 0) {
-            tags[1] = 'EN';
-          }
+        if (this.tagClicktimes[0] % 2 !== 0) {
+          tags[0] = 'CN';
+        }
+        if (this.tagClicktimes[1] % 2 !== 0) {
+          tags[1] = 'EN';
+        }
         this.serve.searchNewsByTags(tags).subscribe(
           news => {
             this.sendMessage(news);
@@ -192,29 +198,29 @@ export class SearchbarComponent implements OnInit {
     } else if (this.string === 'video') {
 
       if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0 &&
-        this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0){
+        this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0) {
         this.sendMessage(null);
       } else {
-        if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0){
+        if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0) {
           tags[0] = 'CN';
           tags[1] = 'EN';
         } else {
-          if(this.tagClicktimes[0] % 2 !== 0) {
+          if (this.tagClicktimes[0] % 2 !== 0) {
             tags[0] = 'CN';
           }
-          if(this.tagClicktimes[1] % 2 !== 0){
+          if (this.tagClicktimes[1] % 2 !== 0) {
             tags[1] = 'EN';
           }
         }
 
-        if (this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0){
+        if (this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0) {
           tags[2] = '趋势';
           tags[3] = '深度';
         } else {
-          if(this.tagClicktimes[2] % 2 !== 0) {
+          if (this.tagClicktimes[2] % 2 !== 0) {
             tags[2] = '趋势';
           }
-          if(this.tagClicktimes[3] % 2 !== 0) {
+          if (this.tagClicktimes[3] % 2 !== 0) {
             tags[3] = '深度';
           }
         }
@@ -227,34 +233,33 @@ export class SearchbarComponent implements OnInit {
 
 
     } else if (this.string === 'flash') {
-      if(this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0 &&
-        this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0){
+      if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0 &&
+        this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0) {
         this.sendMessage(null);
       } else {
-        if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0){
-            tags[0] = 'CN';
-            tags[1] = 'EN';
+        if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0) {
+          tags[0] = 'CN';
+          tags[1] = 'EN';
         } else {
-          if(this.tagClicktimes[0] % 2 !== 0){
+          if (this.tagClicktimes[0] % 2 !== 0) {
             tags[0] = 'CN';
           }
-          if(this.tagClicktimes[1] % 2 !== 0){
+          if (this.tagClicktimes[1] % 2 !== 0) {
             tags[1] = 'EN';
           }
         }
 
-        if (this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0){
+        if (this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0) {
           tags[2] = 'true';
           tags[3] = 'false';
         } else {
-          if(this.tagClicktimes[2] % 2 !== 0) {
+          if (this.tagClicktimes[2] % 2 !== 0) {
             tags[2] = 'true';
           }
-          if(this.tagClicktimes[3] % 2 !== 0) {
+          if (this.tagClicktimes[3] % 2 !== 0) {
             tags[3] = 'false';
           }
         }
-
 
 
         this.serve.searchFlashByTags(tags).subscribe(
@@ -264,23 +269,23 @@ export class SearchbarComponent implements OnInit {
         );
       }
     } else if (this.string === 'genuine') {
-      if(this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0 &&
-        this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0 && this.tagClicktimes[4] % 2 === 0){
+      if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0 &&
+        this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0 && this.tagClicktimes[4] % 2 === 0) {
         this.sendMessage(null);
       } else {
-        if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0){
+        if (this.tagClicktimes[0] % 2 === 0 && this.tagClicktimes[1] % 2 === 0) {
           tags[0] = 'CN';
           tags[1] = 'EN';
         } else {
-          if(this.tagClicktimes[0] % 2 !== 0){
+          if (this.tagClicktimes[0] % 2 !== 0) {
             tags[0] = 'CN';
           }
-          if(this.tagClicktimes[1] % 2 !== 0){
+          if (this.tagClicktimes[1] % 2 !== 0) {
             tags[1] = 'EN';
           }
         }
 
-        if (this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0 && this.tagClicktimes[4] % 2 === 0){
+        if (this.tagClicktimes[2] % 2 === 0 && this.tagClicktimes[3] % 2 === 0 && this.tagClicktimes[4] % 2 === 0) {
           tags[2] = '原创文章';
           tags[3] = '百科';
           tags[4] = '分析';
@@ -295,7 +300,6 @@ export class SearchbarComponent implements OnInit {
             tags[4] = '分析';
           }
         }
-
 
 
         this.serve.searchGeniuneByTags(this.keyword).subscribe(
