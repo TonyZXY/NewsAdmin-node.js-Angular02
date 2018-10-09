@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NewsFlash} from '../../entities/NewsFlash';
 import {DataService} from '../../services/data.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { Activity } from '../../entities/Activity';
+import {Activity} from '../../entities/Activity';
 
 @Component({
   selector: 'app-listactivity',
@@ -15,47 +15,49 @@ export class ListactivityComponent implements OnInit {
   public delete = '/activity/delete/';
   activity: Activity[];
   id: string;
-  newActivity:Activity[];
+  newActivity: Activity[];
   messageTitleToSend: string;
   messageBodyToSend: string;
   endDelete: boolean;
-  constructor(private dataService: DataService, private modalService: NgbModal) { }
+
+  constructor(private dataService: DataService, private modalService: NgbModal) {
+  }
 
   ngOnInit() {
     this.dataService.getActivityList()
-      .subscribe(activity =>{
-        
+      .subscribe(activity => {
+
         activity.forEach(e => {
+          // e.eventName = e.eventName;
+          if (e.custom === false) {
+            // this.delete
             // e.eventName = e.eventName;
-            if (e.custom === false){
-              // this.delete
-              // e.eventName = e.eventName;
-            }
+          }
         });
         this.newActivity = activity.filter((obj1) => {
-          if (obj1.custom == true) {
-              return 1;
+          if (obj1.custom === true) {
+            return 1;
           }
-      
-          if (obj1.custom == false) {
-              return -1;
+
+          if (obj1.custom === false) {
+            return -1;
           }
           return 0;
-        })
+        });
 
         this.newActivity.sort((obj1, obj2) => {
           if (obj1.eventStartTime < obj2.eventStartTime) {
-              return 1;
+            return 1;
           }
-      
+
           if (obj1.eventStartTime > obj2.eventStartTime) {
-              return -1;
+            return -1;
           }
           return 0;
         });
 
-        this.activity = this.newActivity;      
-        });
+        this.activity = this.newActivity;
+      });
   }
 
   onNotifySureToDelete(id: string, content) {
@@ -65,6 +67,7 @@ export class ListactivityComponent implements OnInit {
     // this.id = id;
     // this.modalService.open(content, {centered: true});
   }
+
   onDelete() {
     // this.dataService.deleteNewsFlash(this.id).subscribe(next => {
     //   this.endDelete = true;

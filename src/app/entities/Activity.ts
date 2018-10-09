@@ -19,4 +19,4 @@ export class Activity {
     eventUpdatedTime: string;
     eventVenue: string;
     logoURL: string;
-    }
+}
