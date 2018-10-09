@@ -118,6 +118,62 @@
             </label>
           </div>
         </div>
+        <div class = "form-group">
+          <button type="button" class="btn btn-sm btn-outline-{{isSetClock ? 'success' : 'danger'}}" (click)="toggleClock()">
+            定时推送 - {{isSetClock ? "开" : "关"}}
+          </button>
+          <div class = "form-group" [hidden]="!isSetClock">
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-4">
+                <label>举行日期: YYYY-MM-DD</label>
+                <div class="input-group">
+                  <input class="form-control" placeholder="yyyy-mm-dd"
+                         name="dateStart" [(ngModel)]="dateStartFormat" [required]="isSetClock"  ngbDatepicker #df="ngbDatepicker" #dateStart="ngModel" id="dateLabel">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)="df.toggle()" type="button">
+                      <img src="assets/images/calendar.png" style="width: 1.8rem; height: 1.8rem; cursor: pointer;">
+                    </button>
+                  </div>
+                </div>
+
+                <label
+                  for="dateLabel"
+                  [hidden]="dateStart.valid || !(dateStart.dirty || dateStart.touched)"
+                  class="alert alert-danger col-12">
+                  *未输入时间
+                </label>
+              </div>
+            </div>
+
+            <br><br>
+            <div class="row">
+              <div class="col-4">
+                <ngb-timepicker
+                  name="timeSet"
+                  id = "timeLabel"
+                  [(ngModel)]="time"
+                  [seconds]="true"
+                  [required]="isSetClock"
+                  #timeSet="ngModel"
+                  [meridian]="meridian"></ngb-timepicker>
+                <button type="button" class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}" (click)="toggleMeridian()">
+                  24小时制 - {{meridian ? "开" : "关"}}
+                </button>
+                <hr>
+              </div>
+            </div>
+            <label
+              for="timeLabel"
+              [hidden]="timeSet.valid || !(timeSet.dirty || timeSet.touched)"
+              class="alert alert-danger col-12">
+              *未输入时间
+            </label>
+            <br>
+          </div>
+        </div>
+
 
 
 

@@ -39,7 +39,7 @@ export class ActivityeditComponent implements OnInit {
         } else {
           this.newDate = new Date(this.activity.eventStartTime);
           this.date = this.newDate.getFullYear() + '-' + (this.newDate.getMonth() + 1) + '-' + this.newDate.getDate();
-          this.time = {hour:this.newDate.getHours(), minute: this.newDate.getMinutes(), second: 0};
+          this.time = {hour: this.newDate.getHours(), minute: this.newDate.getMinutes(), second: 0};
           console.log(this.time);
         }
         });
@@ -80,6 +80,9 @@ export class ActivityeditComponent implements OnInit {
     }
     if (this.activityToEdit.eventURL) {
       this.activity.eventURL = this.activityToEdit.eventURL ;
+    }
+    if (this.activityToEdit.logoURL) {
+      this.activity.logoURL = this.activityToEdit.logoURL;
     }
     const errorMessage = this.serve.addActivity(this.activity);
     if (errorMessage === '') {

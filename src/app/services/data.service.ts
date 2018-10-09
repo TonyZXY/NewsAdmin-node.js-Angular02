@@ -91,6 +91,14 @@ export class DataService {
     ).subscribe();
     return this.errormessage;
   }
+  addNewsFlashWithTime(newsflash: NewsFlash, timeStamp: number): string {
+    newsflash.available = true;
+    newsflash.time = timeStamp;
+    this.http.post<NewsFlash>(this.urlHead + '/flashWithTime', newsflash, httpOptions).pipe(
+      catchError(this.handleError)
+    ).subscribe();
+    return this.errormessage;
+  }
 
   addGenuine(genuine: Genuine): string {
     this.http.post<Genuine>(this.urlHead + '/genuine', genuine, httpOptions).pipe(

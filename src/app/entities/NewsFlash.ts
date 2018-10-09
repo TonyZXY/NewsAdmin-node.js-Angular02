@@ -7,4 +7,5 @@ export class NewsFlash {
   languageTag: string;
   toSent: boolean;
   available: boolean;
+  time: number;
 }

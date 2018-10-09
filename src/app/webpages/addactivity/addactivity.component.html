@@ -117,7 +117,7 @@
               for="dateLabel"
               [hidden]="dateStart.valid || !(dateStart.dirty || dateStart.touched)"
               class="alert alert-danger col-12">
-              *未输入区
+              *未输入时间
             </label>
               <!--<input [(ngModel)]="dateFrom" name="from" #from="ngModel" type="text" class="form-control" placeholder="Start: YYYY,MM,DD">-->
             </div>
@@ -173,6 +173,26 @@
               *未输入文章地址
             </label>
           </div>
+
+          <div class="form-group">
+            <label for="urlLabel">Logo地址</label>
+            <textarea
+              type="text"
+              class="form-control"
+              rows="5"
+              id="logourlLabel"
+              required
+              [(ngModel)]="activityToAdd.logoURL"
+              name="logourl"
+              #logourl="ngModel">
+            </textarea>
+            <label
+              for="logourlLabel"
+              [hidden]="logourl.valid || !(logourl.dirty || logourl.touched)"
+              class="alert alert-danger col-12">
+              *未输入logo地址
+            </label>
+          </div>
   
           <button
             type="submit"
@@ -214,4 +234,3 @@
       </div>
     </div>
   </div>
-  
