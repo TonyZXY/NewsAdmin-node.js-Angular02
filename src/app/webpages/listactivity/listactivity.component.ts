@@ -29,22 +29,27 @@ export class ListactivityComponent implements OnInit {
 
         activity.forEach(e => {
           // e.eventName = e.eventName;
-          if (e.custom === false) {
+          if (e.custom !== false) {
+            console.log(e);
             // this.delete
             // e.eventName = e.eventName;
           }
         });
-        this.newActivity = activity.filter((obj1) => {
-          if (obj1.custom === true) {
-            return 1;
-          }
 
-          if (obj1.custom === false) {
-            return -1;
-          }
-          return 0;
-        });
+        this.newActivity = activity.filter(obj1 => obj1.custom === true);
 
+
+        // this.newActivity = activity.filter((obj1) => {
+        //   if (obj1.custom === true || obj1.custom === null || obj1.custom === undefined) {
+        //     return 1;
+        //   }
+        //
+        //   if (obj1.custom === false ) {
+        //     return -1;
+        //   }
+        //   return 0;
+        // });
+        console.log(this.newActivity);
         this.newActivity.sort((obj1, obj2) => {
           if (obj1.eventStartTime < obj2.eventStartTime) {
             return 1;

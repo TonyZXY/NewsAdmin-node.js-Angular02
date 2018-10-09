@@ -20,8 +20,7 @@ const httpOptions = {
 })
 
 export class DataService {
-  private urlHead = 'https://cryptogeekapp.com/api';
-  // private urlHead = 'http://10.10.6.110:3020/api';
+git   // private urlHead = 'http://10.10.6.110:3020/api';
   errormessage = '';
 
 
