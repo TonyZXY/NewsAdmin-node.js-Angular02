@@ -25,18 +25,19 @@ export class ListactivityComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getActivityList()
-      .subscribe(activity => {
+      .subscribe(ob => {
+        // this.activity = ob.data;
+        // activity.forEach(e => {
+        //   // e.eventName = e.eventName;
+        //   if (e.custom !== false) {
+        //     console.log(e);
+        //     // this.delete
+        //     // e.eventName = e.eventName;
+        //   }
+        // });
+        console.log(ob);
 
-        activity.forEach(e => {
-          // e.eventName = e.eventName;
-          if (e.custom !== false) {
-            console.log(e);
-            // this.delete
-            // e.eventName = e.eventName;
-          }
-        });
-
-        this.newActivity = activity.filter(obj1 => obj1.custom === true);
+        this.newActivity = ob.data.events.filter(obj1 => obj1.custom === true);
 
 
         // this.newActivity = activity.filter((obj1) => {

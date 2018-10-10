@@ -21,6 +21,7 @@ const httpOptions = {
 
 export class DataService {
   private urlHead = 'https://cryptogeekapp.com/api';
+  // private urlHead = 'http://10.10.6.110:3020/api';
   errormessage = '';
 
 
@@ -49,7 +50,7 @@ export class DataService {
     return this.http.get<NewsFlash[]>(this.urlHead + '/flashlist').pipe();
   }
 
-  getActivityList(): Observable<Activity[]> {
+  getActivityList(): Observable<any> {
     return this.http.get<Activity[]>(this.urlHead + '/eventAll').pipe();
   }
 
