@@ -22,8 +22,8 @@ const httpOptions = {
 })
 
 export class DataService {
-  // private urlHead = 'https://cryptogeekapp.com/api';
-  private urlHead = 'http://192.168.9.92:3020/api';
+  private urlHead = 'https://cryptogeekapp.com/api';
+  // private urlHead = 'http://192.168.9.92:3020/api';
   errormessage = '';
 
 
