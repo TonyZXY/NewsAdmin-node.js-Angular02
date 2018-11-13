@@ -8,7 +8,7 @@ import {Genuine} from '../entities/Genuine';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Update} from '../entities/Update';
-import { Activity } from '../entities/Activity';
+import {Activity} from '../entities/Activity';
 
 
 const httpOptions = {
@@ -90,6 +90,7 @@ export class DataService {
     ).subscribe();
     return this.errormessage;
   }
+
   addNewsFlashWithTime(newsflash: NewsFlash, timeStamp: number): string {
     newsflash.available = true;
     newsflash.time = timeStamp;
