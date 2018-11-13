@@ -8,7 +8,9 @@ import {Genuine} from '../entities/Genuine';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Update} from '../entities/Update';
-import {Activity} from '../entities/Activity';
+
+import { Activity } from '../entities/Activity';
+import {GameInfo} from '../entities/GameInfo';
 
 
 const httpOptions = {
@@ -20,7 +22,8 @@ const httpOptions = {
 })
 
 export class DataService {
-  private urlHead = 'https://cryptogeekapp.com/api';
+  // private urlHead = 'https://cryptogeekapp.com/api';
+  private urlHead = 'http://192.168.9.92:3020/api';
   errormessage = '';
 
 
@@ -49,7 +52,7 @@ export class DataService {
     return this.http.get<NewsFlash[]>(this.urlHead + '/flashlist').pipe();
   }
 
-  getActivityList(): Observable<Activity[]> {
+  getActivityList(): Observable<any> {
     return this.http.get<Activity[]>(this.urlHead + '/eventAll').pipe();
   }
 
@@ -91,9 +94,9 @@ export class DataService {
     return this.errormessage;
   }
 
-  addNewsFlashWithTime(newsflash: NewsFlash, timeStamp: number): string {
+  addNewsFlashWithTime(newsflash: NewsFlash, time: Date): string {
     newsflash.available = true;
-    newsflash.time = timeStamp;
+    newsflash.time = time.toISOString();
     this.http.post<NewsFlash>(this.urlHead + '/flashWithTime', newsflash, httpOptions).pipe(
       catchError(this.handleError)
     ).subscribe();
@@ -262,7 +265,35 @@ export class DataService {
     return this.errormessage;
   }
 
+  addGameInfo(gameInfo: GameInfo): string {
+    this.http.post<GameInfo>(this.urlHead + '/gameNoti', gameInfo, httpOptions).pipe(
+      catchError(this.handleError)
+    ).subscribe();
+    return this.errormessage;
+  }
 
+  editGameInfo(gameInfo: GameInfo): string {
+    console.log(gameInfo);
+    this.http.put<GameInfo>(this.urlHead + '/gameNoti/' + gameInfo._id, gameInfo, httpOptions).pipe(
+      catchError(this.handleError)
+    ).subscribe();
+    return this.errormessage;
+  }
+
+  getAllGameInfo(): Observable<GameInfo[]> {
+    const newUrlHead = this.urlHead.substr(0, this.urlHead.length - 4);
+    return this.http.get<GameInfo[]>(newUrlHead + '/game/allNoti').pipe();
+  }
+
+  getOneGameInfo(id): any {
+    return this.http.get<any>(this.urlHead + '/gameNoti/' + id);
+  }
+
+  deleteGameInfo(_id: string):  Observable<{}> {
+    return this.http.delete(this.urlHead + '/gameNoti/' + _id, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
   // deleteGenuine(_id: string): Observable<{}> {
   //    return this.http.delete(this.urlHead + '/genuine/' + _id, httpOptions).pipe(
   //     catchError(this.handleError)

@@ -1,0 +1,56 @@
+<app-menubar></app-menubar>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2">
+      <app-toolbar [parentPath]="string"></app-toolbar>
+    </div>
+    <div class="col-sm-10">
+      <div class="form-group">
+        <h3>大赛公告列表</h3>
+      </div>
+      <br>
+      <br>
+      <ul class="list-group"
+          *ngFor="let g of gameInfoes">
+
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <div class="col-lg-3 align-items-center">
+            <time class="timeText">Available: {{setTime(g.timeFrom)}}</time>
+          </div>
+          <div class="col-lg-2 align-items-center">
+            <time class="timeText">To: {{setTime(g.timeTo)}}</time>
+          </div>
+          <div class="col-lg-5 align-items-center">
+            <strong>{{g.title}}</strong>
+          </div>
+          <div class="col-lg-1">
+            <span>
+              <a class="btn btn-primary" role="button" routerLink="{{edit+g._id}}"> Edit </a>
+            </span>
+          </div>
+          <div class="col-lg-1">
+            <span>
+              <button class="btn btn-danger" role="button" (click)="onNotifySureToDelete(g._id,content2)"> Delete </button>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<ng-template #content2 let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{messageTitleToSend}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>{{messageBodyToSend}}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="d()">关闭</button>
+    <button type="button" class="btn btn-danger" (click)="onDelete()" [hidden]="endDelete" >确认</button>
+  </div>
+</ng-template>
+
