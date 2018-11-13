@@ -44,6 +44,9 @@ import { AddactivityComponent } from './webpages/addactivity/addactivity.compone
 import { ActivityhomeComponent } from './webpages/activityhome/activityhome.component';
 import { ActivityeditComponent } from './webpages/activityedit/activityedit.component';
 import { ActivitysearchComponent } from './webpages/activitysearch/activitysearch.component';
+import { TradingGameInfoComponent } from './webpages/trading-game-info/trading-game-info.component';
+import { AddgameinfoComponent } from './webpages/addgameinfo/addgameinfo.component';
+import { GameinfoeditComponent } from './webpages/gameinfoedit/gameinfoedit.component';
 
 const appRoutes: Routes = [
   {path: 'news/edit/:id', component: NewseditComponent, canActivate: [AuthGuard]},
@@ -73,7 +76,11 @@ const appRoutes: Routes = [
   {path: 'video', component: VideohomeComponent, canActivate: [AuthGuard]},
   {path: 'genuine', component: GenuinehomeComponent, canActivate: [AuthGuard]},
   {path: 'update', component: UpdateComponent, canActivate: [AuthGuard]},
-  {path: 'activity', component: ActivityhomeComponent, canActivate: [AuthGuard]}
+  {path: 'activity', component: ActivityhomeComponent, canActivate: [AuthGuard]},
+  {path: 'gameInfo', component: TradingGameInfoComponent, canActivate: [AuthGuard]},
+  {path: 'gameInfo/list', component: TradingGameInfoComponent, canActivate: [AuthGuard]},
+  {path: 'gameInfo/add', component: AddgameinfoComponent, canActivate: [AuthGuard]},
+  {path: 'gameInfo/edit/:id', component: GameinfoeditComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
@@ -111,7 +118,10 @@ const appRoutes: Routes = [
     ActivityhomeComponent,
     ActivityeditComponent,
     ActivitysearchComponent,
-    ListactivityComponent
+    ListactivityComponent,
+    TradingGameInfoComponent,
+    AddgameinfoComponent,
+    GameinfoeditComponent
   ],
   imports: [
     NgbModule.forRoot(),

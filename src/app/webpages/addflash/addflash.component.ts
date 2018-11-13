@@ -63,7 +63,7 @@ export class AddflashComponent implements OnInit {
         console.log(now);
         console.log(diffinhours);
 
-        const errorMessage = this.dataService.addNewsFlashWithTime(this.newsFlashToAdd, diffinhours);
+        const errorMessage = this.dataService.addNewsFlashWithTime(this.newsFlashToAdd, this.newDate);
         if (errorMessage === '') {
           this.messageTitle = '成功添加快讯';
           this.messageBody = '已成功向数据库添加一条新的快讯';

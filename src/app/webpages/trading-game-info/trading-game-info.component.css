@@ -1,0 +1,16 @@
+.align-items-center {
+  font-size: large;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.timeText {
+  margin-right: 20px;
+}
+
+.btn.btn-primary {
+}
+
+.btn.btn-danger {
+  margin-right: 10px;
+}
