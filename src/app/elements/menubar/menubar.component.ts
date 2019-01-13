@@ -9,7 +9,11 @@ import {Router} from '@angular/router';
 })
 export class MenubarComponent implements OnInit {
 
-
+  /**
+   * Constructor of current component
+   * @param auth authorization service for login
+   * @param router router to lead to other pages
+   */
   constructor(public auth: AuthService, private router: Router) {
   }
 
@@ -18,11 +22,12 @@ export class MenubarComponent implements OnInit {
 
   }
 
+  /**
+   * Click to log out and remove session and navigate to the login page
+   */
   onClick() {
     sessionStorage.removeItem('loginstatus');
     sessionStorage.removeItem('token');
-    // localStorage.removeItem('loginstatus');
-    // localStorage.removeItem('token');
     this.router.navigate(['']);
   }
 

@@ -15,15 +15,16 @@ export class SearchbarComponent implements OnInit {
   public dateTo: string;
   public keyword: string;
   @Output() messageEvent = new EventEmitter();
-  tagClicktimes: number[];
-  public tag1 = '';
-  public tag2 = '';
-  public tag3 = '';
-  public tag4 = '';
-  public tag5 = '';
+  tagClicktimes: number[]; // Count the number of click for each tag to change color and check if it is selected
+  public tag1 = ''; // First Tag when using tag search
+  public tag2 = ''; // Second Tag when using tag search
+  public tag3 = ''; // Third Tag when using tag search
+  public tag4 = ''; // Fourth Tag when using tag search
+  public tag5 = ''; // Fifth Tag when using tag search
   public options;
   tagFontColor;
   tagBackColor;
+
 
   constructor(private serve: DataService) {
   }
