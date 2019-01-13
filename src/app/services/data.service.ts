@@ -8,6 +8,7 @@ import {Genuine} from '../entities/Genuine';
 import {catchError} from 'rxjs/operators';
 import {throwError} from 'rxjs';
 import {Update} from '../entities/Update';
+
 import { Activity } from '../entities/Activity';
 import {GameInfo} from '../entities/GameInfo';
 
@@ -21,8 +22,9 @@ const httpOptions = {
 })
 
 export class DataService {
-  // // private urlHead = 'https://cryptogeekapp.com/api';
-  private urlHead = 'http://192.168.9.92:3020/api';
+
+  private urlHead = 'https://cryptogeekapp.com/api';
+  // private urlHead = 'http://192.168.9.92:3020/api';
   errormessage = '';
 
 
@@ -92,6 +94,7 @@ export class DataService {
     ).subscribe();
     return this.errormessage;
   }
+
   addNewsFlashWithTime(newsflash: NewsFlash, time: Date): string {
     newsflash.available = true;
     newsflash.time = time.toISOString();
